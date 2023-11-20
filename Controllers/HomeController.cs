@@ -26,6 +26,11 @@ public class HomeController : Controller
     // Add a unique view
     public IActionResult MediaPortfolio() => View();
 
+    public IActionResult Social()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
