@@ -1,7 +1,165 @@
-﻿@{
-    ViewData["MediaPortfolio"] = "Media Portfolio";
-}
-<h1>@ViewData["MediaPortfolio"]</h1>
+﻿<div>
 
-<p>Use this fdgsdfnhfgsnjxfgjnfgxpolicy.</p>
+</div>
+<div>
+    <ul class="card-list">
 
+        <li class="card">
+            <a class="card-image" href="https://agray2195.wixsite.com/sirenmediaproduction" target="_blank" style="background-image: url(https://i.imgur.com/4qQLL4V.jpg); " data-image-full="https://i.imgur.com/4qQLL4V.jpg">
+            </a>
+            <a class="card-description" href="https://agray2195.wixsite.com/sirenmediaproduction" target="_blank">
+                <h2>Media Home</h2>
+                <p>Professional Portfolio</p>
+            </a>
+        </li>
+
+        <li class="card">
+            <a class="card-image" href="https://agray2195.wixsite.com/sirenmediaproduction/photography" target="_blank" style="background-image: url(https://i.imgur.com/tJgFntS.jpg); " data-image-full="https://i.imgur.com/tJgFntS.jpg">
+            </a>
+            <a class="card-description" href="https://agray2195.wixsite.com/sirenmediaproduction/photography" target="_blank">
+                <h2>Photography</h2>
+                <p>Some NSFW</p>
+            </a>
+        </li>
+
+        <li class="card">
+            <a class="card-image" href="https://agray2195.wixsite.com/sirenmediaproduction/videography" target="_blank" style="background-image: url(https://i.imgur.com/UTANS1D.jpg);" data-image-full="https://i.imgur.com/UTANS1D.jpg">
+            </a>
+            <a class="card-description" href="https://agray2195.wixsite.com/sirenmediaproduction/videography" target="_blank">
+                <h2>Videography</h2>
+                <p>Check it out!</p>
+            </a>
+        </li>
+
+        <li class="card">
+            <a class="card-image" href="https://agray2195.wixsite.com/sirenmediaproduction/graphic-design" target="_blank" style="background-image: url(https://i.imgur.com/9jLPceX.png);" data-image-full="https://i.imgur.com/9jLPceX.png">
+            </a>
+            <a class="card-description" href="https://agray2195.wixsite.com/sirenmediaproduction/graphic-design" target="_blank">
+                <h2>Graphic Arts</h2>
+                <p>3D Render and 2D Design</p>
+            </a>
+        </li>
+
+        <li class="card">
+            <a class="card-image" href="https://agray2195.wixsite.com/sirenmediaproduction/music-production" target="_blank" style="background-image: url(https://i.imgur.com/S3wryNh.jpg);" data-image-full="https://i.imgur.com/S3wryNh.jpg">
+            </a>
+            <a class="card-description" href="https://agray2195.wixsite.com/sirenmediaproduction/music-production" target="_blank">
+                <h2>Audio Design</h2>
+                <p>EP's, Samples, and More!</p>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+<style>
+    /* Lazy Load Styles */
+    .card-image {
+        display: block;
+        min-height: 20rem; /* layout hack */
+        background: #fff center center no-repeat;
+        background-size: cover;
+        filter: blur(px); /* blur the lowres image */
+    }
+
+        .card-image > img {
+            display: block;
+            width: 100%;
+            opacity: 0; /* visually hide the img element */
+        }
+
+        .card-image.is-loaded {
+            filter: none; /* remove the blur on fullres image */
+            transition: filter 1s;
+        }
+
+
+
+
+    /* Layout Styles */
+    html, body {
+        width: 100%;
+        height: 200%;
+        margin: 0;
+        font-size: 16px;
+        font-family: sans-serif;
+        background-color:slategrey;
+    }
+
+    
+
+    .card-list {
+        display: block;
+        margin: 1rem auto;
+        padding: 0;
+        font-size: 0;
+        text-align: center;
+        list-style: none;
+    }
+
+    .card {
+        display: inline-block;
+        width: 90%;
+        max-width: 20rem;
+        margin: 1rem;
+        font-size: 1rem;
+        text-decoration: none;
+        overflow: hidden;
+        box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+        transition: transform 0.1s ease-in-out, box-shadow 0.1s;
+    }
+
+        .card:hover {
+            transform: translateY(-0.5rem) scale(1.0125);
+            box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+        }
+
+    .card-description {
+        display: block;
+        padding: 1em 0.5em;
+        color: #515151;
+        text-decoration: none;
+    }
+
+        .card-description > h2 {
+            margin: 0 0 0.5em;
+        }
+
+        .card-description > p {
+            margin: 0;
+        }
+</style>
+
+<script>// This is "probably" IE9 compatible but will need some fallbacks for IE8
+    // - (event listeners, forEach loop)
+
+    // wait for the entire page to finish loading
+    window.addEventListener('load', function () {
+
+        // setTimeout to simulate the delay from a real page load
+        setTimeout(lazyLoad, 1000);
+
+    });
+
+    function lazyLoad() {
+        var card_images = document.querySelectorAll('.card-image');
+
+        // loop over each card image
+        card_images.forEach(function (card_image) {
+            var image_url = card_image.getAttribute('data-image-full');
+            var content_image = card_image.querySelector('img');
+
+            // change the src of the content image to load the new high res photo
+            content_image.src = image_url;
+
+            // listen for load event when the new photo is finished loading
+            content_image.addEventListener('load', function () {
+                // swap out the visible background image with the new fully downloaded photo
+                card_image.style.backgroundImage = 'url(' + image_url + ')';
+                // add a class to remove the blur filter to smoothly transition the image change
+                card_image.className = card_image.className + ' is-loaded';
+            });
+
+        });
+
+    }</script>
