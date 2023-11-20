@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/aaron/Projects/WebsiteCapstone/WebsiteCapstone.csproj": {}
+    "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/WebsiteCapstone.csproj": {}
   },
   "projects": {
-    "/Users/aaron/Projects/WebsiteCapstone/WebsiteCapstone.csproj": {
+    "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/WebsiteCapstone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/aaron/Projects/WebsiteCapstone/WebsiteCapstone.csproj",
+        "projectUniqueName": "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/WebsiteCapstone.csproj",
         "projectName": "WebsiteCapstone",
-        "projectPath": "/Users/aaron/Projects/WebsiteCapstone/WebsiteCapstone.csproj",
+        "projectPath": "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/WebsiteCapstone.csproj",
         "packagesPath": "/Users/aaron/.nuget/packages/",
-        "outputPath": "/Users/aaron/Projects/WebsiteCapstone/obj/",
+        "outputPath": "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/aaron/.nuget/NuGet/NuGet.Config"
