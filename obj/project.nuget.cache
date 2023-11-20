@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "sFPBekg3wancnvZ3EHQo/BglTFmqEbxmhRLYXUMY7ziSelKmZRbJ0DvWI+Z/JUujeTDmKHyH5zSrf0OiC44yjA==",
+  "success": true,
+  "projectFilePath": "/Users/aaron/Projects/WebsiteCapstone/WebsiteCapstone.csproj",
+  "expectedPackageFiles": [
+    "/Users/aaron/.nuget/packages/bootstrap/5.3.2/bootstrap.5.3.2.nupkg.sha512"
+  ],
+  "logs": []
+}
