@@ -1,249 +1,140 @@
-﻿<div>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="headline">
-                <h1>Animated Social Media Icons</h1>
-            </div>
-            <div class="social-buttons">
-                <!-- facebook  Button -->
-                <a href="https://www.facebook.com/aaron.gray.735" target="blank" class="social-margin">
-                    <div class="social-icon facebook">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <!-- instagram Button -->
-                <a href="https://www.instagram.com/itzz_siren/" target="blank" class="social-margin">
-                    <div class="social-icon instagram">
-                        <i class="fa fa-instagram-p" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <!-- linkedIn Button -->
-                <a href="https://www.linkedin.com/in/aaron-gray-creative/" class="social-margin" target="blank">
-                    <div class="social-icon linkedin">
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <!-- github Button -->
-                <a href="https://github.com/GraySIREN" target="blank" class="social-margin">
-                    <div class="social-icon github">
-                        <i class="fa fa-github-alt" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <!-- portfolio Button -->
-                <a href="https://agray2195.wixsite.com/sirenmediaproduction" target="blank" class="social-margin">
-                    <div class="social-icon portfolio">
-                        <i class="fa fa-portfolio" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <!-- soundcloud Button -->
-                <a href="https://soundcloud.com/user-77106647" target="blank" class="social-margin">
-                    <div class="social-icon soundcloud">
-                        <i class="fa fa-soundcloud" aria-hidden="true"></i>
-                    </div>
-                </a>
-            </div>
+﻿@* Social Icon Footer *@
+<div>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+
+    <footer>
+        <div class="rounded-social-buttons">
+            <a class="social-button github" href="https://github.com/GraySIREN" target="_blank"><i class="fab fa-github"></i></a>
+            <a class="social-button facebook" href="https://www.facebook.com/aaron.gray.735" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a class="social-button portfolio" href="https://agray2195.wixsite.com/sirenmediaproduction" target="_blank"><i class="fab fa-portfolio"></i></a>
+            <a class="social-button linkedin" href="https://www.linkedin.com/in/aaron-gray-creative/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a class="social-button soundcloud" href="https://soundcloud.com/user-77106647" target="_blank"><i class="fab fa-soundcloud"></i></a>
+            <a class="social-button instagram" href="https://www.instagram.com/itzz_siren/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-    </body>
-</html>
+    </footer>
 </div>
 
+@* Social Icon Footer *@
 <style>
+    body {
+        background: #D0D8DB;
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
 
-@@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-html,body{
-  margin:0;
-  height:100%;
-  font-family: 'Montserrat', sans-serif;
-}
-.container{
-  padding-top:30px;
-  min-height:100%;
-  text-align:center;
-  background: linear-gradient(0deg, rgba(34,195,104,1) 0%, rgba(45,77,253,1) 100%);
-}
+    textarea {
+        resize: none;
+    }
 
-.headline{
-  text-align:center;
+    .text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        white-space: nowrap;
+    }
 
-}
-.headline  h1{
-    font-size:35px;
-    font-family: 'Montserrat', sans-serif;
-    color:#fff;
-  }
+    @@charset "UTF-8";
 
-.social-buttons{
-  display:inline-block;
-  background: rgba(256,256,256,0.5);
-  padding:20px;
-  padding-bottom: 5px;
-  border-radius:10px;
-  text-align:center;
-  margin:20px 10px;
-  box-shadow: 0px 0px 32px -7px #00199f;
-}
+    .svg-inline--fa {
+        vertical-align: -0.200em;
+    }
 
-/* Helper class to divide the icons */
-.social-margin {
-  margin-right: 15px;
-}
+    .rounded-social-buttons {
+        text-align: center;
+    }
 
-a,
-a:hover,
-a:focus,
-a:active {
-  text-decoration: none;
-}
+        .rounded-social-buttons .social-button {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            width: 3.125rem;
+            height: 3.125rem;
+            border: 0.125rem solid transparent;
+            padding: 0;
+            text-decoration: none;
+            text-align: center;
+            color: #fefefe;
+            font-size: 1.5625rem;
+            font-weight: normal;
+            line-height: 2em;
+            border-radius: 1.6875rem;
+            transition: all 0.5s ease;
+            margin-right: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
 
-.social-icon {
-  margin-bottom: 15px;
-   box-sizing: border-box;
-  -moz-border-radius: 138px;
-  -webkit-border-radius: 138px;
-  border-radius: 138px;
-  border: 5px solid;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  line-height: 1px;
-  padding-top: 11px;
-  transition: all 0.5s;
-}
-.social-icon:hover {
-    transform: rotate(360deg)scale(1.3);
-  }
-  /* Facebook Button Styling */
- .facebook {
-    font-size: 22px;
-    padding-top: 9px;
-    border-color: #3b5998;
-    background-color: #3b5998;
-    color: #ffffff;
+            .rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+                -webkit-transform: rotate(720deg);
+                -ms-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
 
-  }
-  .facebook:hover {
-    background-color: #ffffff;
-    color: #3b5998;
-  }
-  /* Twitter Button Styling */
-.twitter {
-    font-size: 22px;
-    padding-top: 10px;
-    padding-left: 2px;
-    border-color: #55acee;
-    background-color: #55acee;
-    color: #ffffff;
+        .rounded-social-buttons .fa-github, .fa-portfolio, .fa-facebook-f, .fa-linkedin, .fa-soundcloud, .fa-instagram {
+            font-size: 25px;
+        }
 
-  }
-  .twitter:hover {
-    background-color: #ffffff;
-    color: #55acee;
-  }
-  /* Google+ Button Styling */
-  .google-plus {
-    font-size: 22px;
-    padding-top: 9px;
-    padding-left: 2px;
-    background-color: #dd4b39;
-    color: #ffffff;
-    border-color: #dd4b39;
+        .rounded-social-buttons .social-button.github {
+            background: #282a36;
+        }
 
-  }
-  .google-plus :hover {
-    background-color: #ffffff;
-    color: #dd4b39;
-  }
-  /* Linkedin Button Styling */
-  .linkedin {
-    font-size: 24px;
-    padding-top: 8px;
-    padding-left: 1px;
-    background-color: #0976b4;
-    color: #ffffff;
-    border-color: #0976b4;
+            .rounded-social-buttons .social-button.github:hover, .rounded-social-buttons .social-button.github:focus {
+                color: #3b5998;
+                background: #282a36;
+                border-color: #3b5998;
+            }
 
-  }
-  .linkedin :hover {
-    background-color: #ffffff;
-    color: #0976b4;
-  }
-  /* Pinterest Button Styling */
-.pinterest {
-    font-size: 22px;
-    padding-top: 9px;
-    background-color:  #cb2027;
-    color: #ffffff;
-    border-color:  #cb2027;
+        .rounded-social-buttons .social-button.facebook {
+            background: #3b5998;
+        }
 
-  }
-  .pinterest:hover {
-    background-color: #ffffff;
-    color:  #cb2027;
-  }
-  /* Behance Button Styling */
-  .behance {
-    font-size: 22px;
-    padding-top: 9px;
-    background-color: #1769ff;
-    color: #ffffff;
-    border-color: #1769ff;
+            .rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
+                color: #3b5998;
+                background: #fefefe;
+                border-color: #3b5998;
+            }
 
-  }
-  .behance :hover {
-    background-color: #ffffff;
-    color: #1769ff;
-  }
+        .rounded-social-buttons .social-button.portfolio {
+            background: #00cccc;
+        }
 
-  /* Github Button Styling */
- .github {
-    font-size: 22px;
-    padding-top: 9px;
-    background-color: #4183c4;
-    color: #ffffff;
-    border-color: #4183c4;
+            .rounded-social-buttons .social-button.portfolio:hover, .rounded-social-buttons .social-button.portfolio:focus {
+                color: #00cccc;
+                background: #fefefe;
+                border-color: #00a693;
+            }
 
-  }
-  .github:hover {
-    background-color: #ffffff;
-    color: #4183c4;
-  }
-  /* Youtube Button Styling */
- .youtube {
-    font-size: 22px;
-    padding-top: 9px;
-    padding-left: 0px;
-    background-color: #bb0000;
-    color: #ffffff;
-    border-color: #bb0000;
+        .rounded-social-buttons .social-button.linkedin {
+            background: #007bb5;
+        }
 
-  }
-  .youtube  :hover {
-    background-color: #ffffff;
-    color: #bb0000;
-  }
-  /* Soundcloud Button Styling */
-  .soundcloud {
-    font-size: 22px;
-    padding-top: 9px;
-    padding-left: 0px;
-    background-color: #ff3a00;
-    color: #ffffff;
-    border-color: #ff3a00;
+            .rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
+                color: #007bb5;
+                background: #fefefe;
+                border-color: #007bb5;
+            }
 
-  }
-  .soundcloud :hover {
-    background-color: #ffffff;
-    color: #ff3a00;
-  }
+        .rounded-social-buttons .social-button.soundcloud {
+            background: #f50;
+        }
 
+            .rounded-social-buttons .social-button.soundcloud:hover, .rounded-social-buttons .social-button.soundcloud:focus {
+                color: #f50;
+                background: #fefefe;
+                border-color: #bb0000;
+            }
+
+        .rounded-social-buttons .social-button.instagram {
+            background: #cd486b;
+        }
+
+            .rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+                color: #cd486b;
+                background: #fefefe;
+                border-color: #8a3ab9;
+            }
 </style>
