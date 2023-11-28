@@ -31,6 +31,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult BlackJack()
+    {
+        return View();
+    }
+
     public IActionResult CubeSmash()
     {
         return View();

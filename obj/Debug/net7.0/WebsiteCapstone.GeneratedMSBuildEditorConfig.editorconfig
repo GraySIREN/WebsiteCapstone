@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/aaron/Projects/WebsiteCapstone_ClonedRepo
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/Views/Home/BlackJack.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9CbGFja0phY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
