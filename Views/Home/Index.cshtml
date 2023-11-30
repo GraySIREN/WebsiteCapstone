@@ -1,7 +1,308 @@
 ﻿@*<iframe src="https://drive.google.com/file/d/1yTmtOL22_0zVtgmZawXIeE0XhRNLpIjQ/preview" width="640" height="480" allow="autoplay"></iframe>
-Import Image from Google Drive
+    Import Image from Google Drive
 
 *@
+
+
+<style>
+    @@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i');
+
+    html, body {
+        margin: 0;
+        height: 300%;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+
+    a {
+        text-decoration: none
+    }
+
+    .header {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
+        height: 50vw;
+        min-height: 400px;
+        max-height: 550px;
+        min-width: 300px;
+        color: #eee;
+    }
+
+        .header:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
+        }
+
+        .header:before {
+            content: "";
+            width: 100%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            scale(1.0, 1.0);
+            transform: translateZ(0);
+            background: #1B2030 url(https://i.imgur.com/g8Czper.jpg) 35% 0 no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+            animation: grow 60s linear 10ms infinite;
+            transition: all 0.4s ease-in-out;
+            z-index: -2
+        }
+
+        .header a {
+            color: #eee
+        }
+
+    .menu {
+        display: block;
+        width: 40px;
+        height: 30px;
+        border: 2px solid #fff;
+        border-radius: 3px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        text-decoration: none
+    }
+
+        .menu:after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 3px;
+            background: #fff;
+            position: absolute;
+            margin: 0 auto;
+            top: 5px;
+            left: 0;
+            right: 0;
+            box-shadow: 0 8px, 0 16px
+        }
+
+    .logo {
+        border: 2px solid #fff;
+        border-radius: 3px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        align-content: center;
+        margin: 20px;
+        padding: 0px 10px;
+        font-weight: 900;
+        font-size: 1.1em;
+        line-height: 1;
+        box-sizing: border-box;
+        height: 40px
+    }
+
+    .sides, .info {
+        flex: 0 0 auto;
+        width: 50%
+    }
+
+    .info {
+        width: 100%;
+        padding: 15% 10% 0 10%;
+        text-align: center;
+        text-shadow: 0 2px 3px rgba(0,0,0,0.2)
+    }
+
+    .author {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: url(https://i.imgur.com/6DLCsZcb.jpg) center no-repeat;
+        background-size: cover;
+        box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+        margin-bottom: 3px
+    }
+
+    .info h4, .meta {
+        font-size: 0.7em
+    }
+
+    .meta {
+        font-style: italic;
+    }
+
+    @@Akeyframes grow {
+        0% {
+            transform: scale(1) translateY(0px)
+        }
+
+        50% {
+            transform: scale(1.2) translateY(-400px)
+        }
+    }
+
+    .content {
+        padding: 5% 10%;
+        text-align: justify
+    }
+
+    .btn {
+        color: #333;
+        border: 2px solid;
+        border-radius: 3px;
+        text-decoration: none;
+        display: inline-block;
+        padding: 5px 10px;
+        font-weight: 600
+    }
+
+    .twtr {
+        margin-top: 100px
+    }
+
+    .btn.twtr:after {
+        content: "\1F426";
+        padding-left: 5px
+    }
+
+
+
+
+
+    HTML CSSResult Skip Results Iframe
+    EDIT ON
+    body {
+        font-family: 'Open Sans', sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .our-team {
+        padding: 30px 0 40px;
+        margin-bottom: 30px;
+        background-color: #c0cfca;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        min-height: 400px;
+        border-radius: 10px;
+    }
+
+        .our-team .picture {
+            display: inline-block;
+            height: 130px;
+            width: 130px;
+            margin-bottom: 10px;
+            z-index: 1;
+            position: relative;
+        }
+
+            .our-team .picture::before {
+                content: "";
+                width: 100%;
+                height: 0;
+                border-radius: 50%;
+                background-color: #0d6efd;
+                position: absolute;
+                bottom: 135%;
+                right: 0;
+                left: 0;
+                opacity: 0.9;
+                transform: scale(3);
+                transition: all 0.3s linear 0s;
+            }
+
+        .our-team:hover .picture::before {
+            height: 100%;
+        }
+
+        .our-team .picture::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #0dcaf0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .our-team .picture img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            transform: scale(1);
+            transition: all 0.9s ease 0s;
+        }
+
+        .our-team:hover .picture img {
+            box-shadow: 0 0 0 14px #ffffff;
+            transform: scale(0.7);
+        }
+
+        .our-team .title {
+            display: block;
+            font-size: 15px;
+            color: #0d6efd;
+            text-transform: capitalize;
+        }
+
+        .our-team .social {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: #0d6efd;
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            transition: all 0.5s ease 0s;
+            color: #ffffff;
+        }
+
+        .our-team:hover .social {
+            bottom: 0;
+        }
+
+        .our-team .social li {
+            display: inline-block;
+        }
+
+            .our-team .social li a {
+                display: block;
+                padding: 10px;
+                font-size: 17px;
+                color: white;
+                transition: all 0.3s ease 0s;
+                text-decoration: none;
+            }
+
+                .our-team .social li a:hover {
+                    color: #d4021d;
+                    background-color: #0d6efd;
+                }
+
+    .introduccion {
+        font-size: 9pt;
+    }
+</style>
+
+
+
+
+
+
+
 
 <div>
     <div class="header">
@@ -146,415 +447,3 @@ Import Image from Google Drive
         </div>
     </div>
 </div>
-
-
-@* Social Icon Footer *@
-<div>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-
-
-    <footer>
-        <div class="rounded-social-buttons">
-            <a class="social-button github" href="https://github.com/GraySIREN" target="_blank"><i class="fab fa-github"></i></a>
-            <a class="social-button facebook" href="https://www.facebook.com/aaron.gray.735" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a class="social-button portfolio" href="https://agray2195.wixsite.com/sirenmediaproduction" target="_blank"><i class="fab fa-portfolio"></i></a>
-            <a class="social-button linkedin" href="https://www.linkedin.com/in/aaron-gray-creative/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a class="social-button soundcloud" href="https://soundcloud.com/user-77106647" target="_blank"><i class="fab fa-soundcloud"></i></a>
-            <a class="social-button instagram" href="https://www.instagram.com/itzz_siren/" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
-</div>
-
-@**@
-
-<style>
-    @@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i');
-html,body{
-  margin:0;
-  height:300%;
-  font-family: 'Josefin Sans', sans-serif;
-
-}
-a{
-  text-decoration:none
-}
-.header{
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  height:50vw;
-  min-height:400px;
-  max-height:550px;
-  min-width:300px;
-  color:#eee;
-}
-.header:after{
-  content:"";
-  width:100%;
-  height:100%;
-  position:absolute;
-  bottom:0;
-  left:0;
-  z-index:-1;
- background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
-}
-.header:before {
-    content: "";
-    width: 100%;
-    height: 200%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    scale(1.0, 1.0);
-    transform: translateZ(0);
-    background: #1B2030 url(https://i.imgur.com/g8Czper.jpg) 35% 0 no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-    animation: grow 60s linear 10ms infinite;
-    transition: all 0.4s ease-in-out;
-    z-index: -2
-}
-.header a{
-  color:#eee
-}
-.menu{
-  display:block;
-  width:40px;
-  height:30px;
-  border:2px solid #fff;
-  border-radius:3px;
-  position:absolute;
-  right:20px;
-  top:20px;
-  text-decoration:none
-}
-.menu:after{
-  content:"";
-  display:block;
-  width:20px;
-  height:3px;
-  background:#fff;
-  position:absolute;
-  margin:0 auto;
-  top:5px;
-  left:0;
-  right:0;
-  box-shadow:0 8px, 0 16px
-}
-.logo{
-  border:2px solid #fff;
-  border-radius:3px;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  align-content:center;
-  margin:20px;
-  padding:0px 10px;
-  font-weight:900;
-  font-size:1.1em;
-  line-height:1;
-  box-sizing:border-box;
-  height:40px
-}
-.sides, .info{
-  flex: 0 0 auto;
-  width:50%
-}
-.info{
-  width:100%;
-  padding:15% 10% 0 10%;
-  text-align:center;
-  text-shadow:0 2px 3px rgba(0,0,0,0.2)
-}
-.author{
-  display:inline-block;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  background:url(https://i.imgur.com/6DLCsZcb.jpg) center no-repeat;
-  background-size:cover;
-  box-shadow:0 2px 3px rgba(0,0,0,0.3);
-  margin-bottom:3px
-}
-.info h4, .meta{
-  font-size:0.7em
-}
-.meta{
-  font-style:italic;
-}
-@@Akeyframes grow{
-  0% { transform: scale(1) translateY(0px)}
-  50% { transform: scale(1.2) translateY(-400px)}
-}
-.content{
-  padding:5% 10%;
-  text-align:justify
-}
-.btn{
-  color:#333;
-  border:2px solid;
-  border-radius:3px;
-  text-decoration:none;
-  display:inline-block;
-  padding:5px 10px;
-  font-weight:600
-}
-
-.twtr{
-  margin-top:100px
-}.btn.twtr:after{content:"\1F426";padding-left:5px}
-
-
-
-
-
-    HTML CSSResult Skip Results Iframe
-    EDIT ON
-    body {
-        font-family: 'Open Sans', sans-serif;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-    }
-
-    .our-team {
-        padding: 30px 0 40px;
-        margin-bottom: 30px;
-        background-color: #ffffff;
-        text-align: center;
-        overflow: hidden;
-        position: relative;
-        min-height: 400px;
-        border-radius: 10px;
-    }
-
-        .our-team .picture {
-            display: inline-block;
-            height: 130px;
-            width: 130px;
-            margin-bottom: 10px;
-            z-index: 1;
-            position: relative;
-        }
-
-            .our-team .picture::before {
-                content: "";
-                width: 100%;
-                height: 0;
-                border-radius: 50%;
-                background-color: #0d6efd;
-                position: absolute;
-                bottom: 135%;
-                right: 0;
-                left: 0;
-                opacity: 0.9;
-                transform: scale(3);
-                transition: all 0.3s linear 0s;
-            }
-
-        .our-team:hover .picture::before {
-            height: 100%;
-        }
-
-        .our-team .picture::after {
-            content: "";
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: #0dcaf0;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .our-team .picture img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%;
-            transform: scale(1);
-            transition: all 0.9s ease 0s;
-        }
-
-        .our-team:hover .picture img {
-            box-shadow: 0 0 0 14px #ffffff;
-            transform: scale(0.7);
-        }
-
-        .our-team .title {
-            display: block;
-            font-size: 15px;
-            color: #0d6efd;
-            text-transform: capitalize;
-        }
-
-        .our-team .social {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            background-color: #0d6efd;
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-            transition: all 0.5s ease 0s;
-            color: #ffffff;
-        }
-
-        .our-team:hover .social {
-            bottom: 0;
-        }
-
-        .our-team .social li {
-            display: inline-block;
-        }
-
-            .our-team .social li a {
-                display: block;
-                padding: 10px;
-                font-size: 17px;
-                color: white;
-                transition: all 0.3s ease 0s;
-                text-decoration: none;
-            }
-
-                .our-team .social li a:hover {
-                    color: #d4021d;
-                    background-color: #0d6efd;
-                }
-
-    .introduccion {
-        font-size: 9pt;
-    }
-</style>
-
-
-@* Social Icon Footer *@
-<style>
-    body {
-    background: #D0D8DB;
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
-
-textarea {
-    resize: none;
-}
-
-.text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  white-space: nowrap;
-}
-
-@@charset "UTF-8";
-
-.svg-inline--fa {
-  vertical-align: -0.200em;
-}
-
-.rounded-social-buttons {
-  text-align: center;
-}
-
-.rounded-social-buttons .social-button {
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  width: 3.125rem;
-  height: 3.125rem;
-  border: 0.125rem solid transparent;
-  padding: 0;
-  text-decoration: none;
-  text-align: center;
-  color: #fefefe;
-  font-size: 1.5625rem;
-  font-weight: normal;
-  line-height: 2em;
-  border-radius: 1.6875rem;
-  transition: all 0.5s ease;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem;
-}
-
-.rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
-  -webkit-transform: rotate(720deg);
-      -ms-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
-
-.rounded-social-buttons .fa-github, .fa-portfolio, .fa-facebook-f, .fa-linkedin, .fa-soundcloud, .fa-instagram {
-  font-size: 25px;
-}
-
-.rounded-social-buttons .social-button.github {
-    background: #282a36;
-}
-
-.rounded-social-buttons .social-button.github:hover, .rounded-social-buttons .social-button.github:focus {
-    color: #3b5998;
-    background: #282a36;
-    border-color: #3b5998;
-}
-
-.rounded-social-buttons .social-button.facebook {
-  background: #3b5998;
-}
-
-.rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
-  color: #3b5998;
-  background: #fefefe;
-  border-color: #3b5998;
-}
-
-.rounded-social-buttons .social-button.portfolio {
-    background: #00cccc;
-}
-
-.rounded-social-buttons .social-button.portfolio:hover, .rounded-social-buttons .social-button.portfolio:focus {
-  color: #00cccc;
-  background: #fefefe;
-  border-color: #00a693;
-}
-
-.rounded-social-buttons .social-button.linkedin {
-  background: #007bb5;
-}
-
-.rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
-  color: #007bb5;
-  background: #fefefe;
-  border-color: #007bb5;
-}
-
-.rounded-social-buttons .social-button.soundcloud {
-  background: #f50;
-}
-
-.rounded-social-buttons .social-button.soundcloud:hover, .rounded-social-buttons .social-button.soundcloud:focus {
-  color: #f50;
-  background: #fefefe;
-  border-color: #bb0000;
-}
-
-.rounded-social-buttons .social-button.instagram {
-  background: #cd486b;
-}
-
-.rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
-  color: #cd486b;
-  background: #fefefe;
-  border-color: #8a3ab9;
-}
-</style>
