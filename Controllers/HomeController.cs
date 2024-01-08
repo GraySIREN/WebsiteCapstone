@@ -41,7 +41,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult React()
+    public IActionResult JS()
     {
         return View();
     }

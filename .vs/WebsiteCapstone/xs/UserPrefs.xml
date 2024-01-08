@@ -1,13 +1,15 @@
-﻿<Properties StartupConfiguration="{A4B63674-FB8B-497F-A8DF-37E47DA204E0}|https">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/HomeController.cs">
+﻿<Properties StartupConfiguration="{A4B63674-FB8B-497F-A8DF-37E47DA204E0}|https" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.WebsiteCapstone PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/Social.cshtml">
     <Files>
-      <File FileName="wwwroot/css/site.css" Line="1" Column="1" />
+      <File FileName="wwwroot/css/site.css" />
       <File FileName="Controllers/HomeController.cs" Line="48" Column="1" />
-      <File FileName="Views/Shared/_Layout.cshtml" />
-      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Home/Index.cshtml" Line="318" Column="1" />
       <File FileName="Views/Home/MediaPortfolio.cshtml" />
-      <File FileName="Views/Home/Social.cshtml" />
+      <File FileName="Views/Home/Social.cshtml" Line="9" Column="8" />
       <File FileName="Views/Home/BlackJack.cshtml" />
     </Files>
     <Pads>
@@ -15,9 +17,7 @@
         <State name="__root__">
           <Node name="WebsiteCapstone">
             <Node name="WebsiteCapstone">
-              <Node name="Controllers">
-                <Node name="HomeController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
@@ -31,10 +31,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.WebsiteCapstone PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
