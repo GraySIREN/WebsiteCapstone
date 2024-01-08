@@ -1,16 +1,19 @@
 ﻿<Properties StartupConfiguration="{A4B63674-FB8B-497F-A8DF-37E47DA204E0}|https" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.WebsiteCapstone PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/Social.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/JS.cshtml">
     <Files>
-      <File FileName="wwwroot/css/site.css" />
-      <File FileName="Controllers/HomeController.cs" Line="48" Column="1" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Home/Index.cshtml" Line="318" Column="1" />
+      <File FileName="wwwroot/css/site.css" Line="1" Column="1" />
+      <File FileName="Controllers/HomeController.cs" Line="42" Column="6" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="169" Column="23" />
+      <File FileName="Views/Home/Index.cshtml" />
       <File FileName="Views/Home/MediaPortfolio.cshtml" />
       <File FileName="Views/Home/Social.cshtml" Line="9" Column="8" />
-      <File FileName="Views/Home/BlackJack.cshtml" />
+      <File FileName="Views/Home/BlackJack.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Home/JS.cshtml" Line="64" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,9 +24,6 @@
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
               </Node>
             </Node>
           </Node>
