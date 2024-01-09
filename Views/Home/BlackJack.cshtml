@@ -1,4 +1,24 @@
 ﻿<style>
+
+    #game-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #player-hand, #dealer-hand {
+        margin-bottom: 20px;
+    }
+
+    #buttons button {
+        margin: 0 10px;
+    }
+
+    #message {
+        font-weight: bold;
+    }
+@* *************************************************************************** *@
+
+
     .card {
         text-align: center;
         position: page;
@@ -46,79 +66,37 @@
 
 
 
-<div class="container text-center">
-    <div class="row justify-content-fluid">
-        <div class="col-3">
-            <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                <img src="https://i.imgur.com/j4ebqJG.png" class="card-img-top" alt="https://i.imgur.com/j4ebqJG.png">
-                <div class="card-body">
-                    @*Body text*@
-                    <h5 class="card-title"> Player Card 1</h5>
-                    <p class="card-text">@**@</p>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Display player's hand -->
+        <div id="player-hand"></div>
+
+        <!-- Display dealer's hand -->
+        <div id="dealer-hand"></div>
+
+        <!-- Action buttons -->
+        <div id="buttons">
+            <button onclick="hit()">Hit</button>
+            <button onclick="stand()">Stand</button>
         </div>
-        <div class="col-3">
-            <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                <img src="https://i.imgur.com/Rz7h1P8.png" class="card-img-top" alt="https://i.imgur.com/Rz7h1P8.png">
-                <div class="card-body">
-                    <h5 class="card-title">Player Card 2</h5>
-                    <p class="card-text">@**@</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                <img src="https://i.imgur.com/IwfREXs.png" class="card-img-top" alt="https://i.imgur.com/IwfREXs.png">
-                <div class="card-body">
-                    <h5 class="card-title">Dealer Card 1</h5>
-                    <p class="card-text">@**@</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                <img src="https://i.imgur.com/GlT5DyI.png" class="card-img-top" alt="https://i.imgur.com/GlT5DyI.png">
-                <div class="card-body">
-                    <h5 class="card-title">Dealer Card 2</h5>
-                    <p class="card-text">@**@</p>
-                </div>
-            </div>
-        </div>
-        <div class="row-2">
-            <center>
-                <div class="card" style="resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                    <img src="https://i.imgur.com/tg6r06l.png" class="center" alt="https://i.imgur.com/tg6r06l.png">
-                    <div class="card-body">
-                        <h5 class="card-title">Deck</h5>
-                        <p class="card-text">@**@</p>
-                    </div>
-                </div>
-            </center>
-        </div>
-        <div class="container-text-center-content-center">
-            <div class="row">
-                <div class="col">
-                    <p style="color: white;">Player</p>
-                </div>
-                <div class="col">
-                    <p style="color: white;">Dealer</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p style="color: white;">Bet Amount: </p>
-                </div>
-                <div class="col">
-                    <p style="color: white;">Bankroll: </p>
-                </div>
-                <div class="col">
-                    <p style="color: white;">Number of Wins: </p>
-                </div>
-            </div>
-        </div>
+
+        <!-- Display messages -->
+        <div id="message"></div>
     </div>
-</div>
+
+    <script src="game.js"></script>
+</body>
+</html>
+
+
 
 
 
