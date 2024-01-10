@@ -19,7 +19,14 @@
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         white-space: nowrap;
+        transition: backdrop-filter 0.3s ease; /* Add transition for a smoother effect */
+        backdrop-filter: blur(0); /* Initial state with no blur */
     }
+
+        .text:hover {
+            backdrop-filter: blur(5px); /* Apply blur on hover */
+            color: #065535;
+        }
 
     @@charset "UTF-8";
 
@@ -29,11 +36,12 @@
 
     .rounded-social-buttons {
         text-align: center;
+        vertical-align: middle;
     }
 
         .rounded-social-buttons .social-button {
-            text-align: center; /* Add this line */
-            vertical-align: middle; /* Add this line */
+            text-align: center;
+            vertical-align: middle;
             display: inline-block;
             position: center;
             cursor: pointer;
