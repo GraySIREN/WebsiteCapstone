@@ -1,8 +1,14 @@
 ﻿<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
 
     #game-container {
         text-align: center;
         margin-top: 50px;
+        margin-right: 0;
+        margin-left: 0;
     }
 
     #player-hand, #dealer-hand {
@@ -21,23 +27,33 @@
 
     /* Style for the card container */
     .card-container {
+        margin: 0;
         display: flex; /* Use flexbox to create a row */
         justify-content: space-around; /* Distribute space evenly between cards */
         flex-wrap: wrap; /* Allow cards to wrap to the next row if necessary */
-        max-width: 1000px; /* Set a maximum width for better responsiveness */
+        max-width: 1500px; /* Set a maximum width for better responsiveness */
         margin: 0 auto; /* Center the container */
     }
+
     /* Style for each individual card */
     .card {
-        width: 200px; /* Set a fixed width for each card */
-        margin: 10px; /* Add some margin for spacing */
+        margin: 0;
+        margin-bottom: 35px;
+        height: 500px;
+        width: 300px; /* Set a fixed width for each card */
         padding: 15px; /* Add padding for content inside the card */
         border: 1px solid #ccc; /* Add a border for a visual separation */
         border-radius: 12px; /* Optional: Add border-radius for rounded corners */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
         transition: transform 0.1s ease-in-out, box-shadow 0.1s;
         animation: ease-in-out;
+        background: center;
+        background-size: cover;
+        position: relative;
+        color: #fff; /* Set text color to contrast with the background image */
+        z-index: 1; /* Ensure text is above the background image */
     }
+
         .card:hover {
             transform: translateY(-0.5rem) scale(1.0125);
             box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
@@ -211,31 +227,33 @@
 <body>
     <div id="game-container">
         <div class="card-container">
+
             <!-- Display player's hand -->
             <div id="player-hand"></div>
+
             <!-- Card 1 -->
-            <div class="card">
+            <div class="card" style="background-image: url('https://i.imgur.com/j4ebqJG.png');">
                 <h2>Card 1</h2>
                 <p>Card content goes here.</p>
             </div>
 
             <!-- Card 2 -->
-            <div class="card">
+            <div class="card" style="background-image: url('https://i.imgur.com/SrTxfYE.png');">
                 <h2>Card 2</h2>
                 <p>Card content goes here.</p>
             </div>
 
-
             <!-- Display dealer's hand -->
             <div id="dealer-hand"></div>
+
             <!-- Card 3 -->
-            <div class="card">
+            <div class="card" style="background-image: url('https://i.imgur.com/WVou0eM.png');">
                 <h2>Card 3</h2>
                 <p>Card content goes here.</p>
             </div>
 
             <!-- Card 4 -->
-            <div class="card">
+            <div class="card" style="background-image: url('https://i.imgur.com/iMamH3Q.png');">
                 <h2>Card 4</h2>
                 <p>Card content goes here.</p>
             </div>
@@ -246,7 +264,7 @@
                 <p>Card content goes here.</p>
             </div>
         </div>
-    </div>
+        </div>
 
     <!-- Action buttons -->
     <div id="buttons">
