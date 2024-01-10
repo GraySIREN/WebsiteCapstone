@@ -25,6 +25,18 @@
 @* *************************************************************************** *@
 @* *************************************************************************** *@
 
+    .row-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px; /* Adjust the margin as needed */
+    }
+
+    /* Style for the deck card */
+    .deck-card {
+        margin-right: 20px; /* Add margin to separate the deck card from stats-container */
+    }
+
     /* Style for the card container */
     .card-container {
         margin: 0;
@@ -257,28 +269,31 @@
                 <h2>Card 4</h2>
                 <p>Card content goes here.</p>
             </div>
+        </div>
+    </div>
 
-            <!-- Deck -->
-            <div class="card">
-                <h2>Deck</h2>
-                <p>Card content goes here.</p>
-            </div>
+    <!-- Stats container and Deck in the same row -->
+    <div class="row-container">
+        <!-- Deck card moved to the left of the stats container -->
+        <div class="card deck-card" style="resize: both; height: 250px; width: 150px;">
+            <h2>Deck</h2>
+            <p>Card content goes here.</p>
         </div>
+        <!-- Stats content -->
+        <div class="stats-container">
+            <div class="grid-item grid-item-1">Player Hand Total: <span id="playerTotal">21</span></div>
+            <div class="grid-item grid-item-2">Dealer Hand Total: <span id="dealerTotal">19</span></div>
+            <div class="grid-item grid-item-3">Bankroll: <span id="bankroll">$250</span></div>
+            <div class="grid-item grid-item-4">Bet Amount: <span id="betAmount">$37</span></div>
+            <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$187</span></div>
+            <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses">$0</span></div>
         </div>
+    </div>
 
     <!-- Action buttons -->
     <div id="buttons">
         <button onclick="hit()">Hit</button>
         <button onclick="stand()">Stand</button>
-    </div>
-
-    <div class="stats-container">
-        <div class="grid-item grid-item-1">Player Hand Total: <span id="playerTotal">21</span></div>
-        <div class="grid-item grid-item-2">Dealer Hand Total: <span id="dealerTotal">19</span></div>
-        <div class="grid-item grid-item-3">Bankroll: <span id="bankroll">$250</span></div>
-        <div class="grid-item grid-item-4">Bet Amount: <span id="betAmount">$37</span></div>
-        <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$187</span></div>
-        <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses">$0</span></div>
     </div>
 
     <!-- Display messages -->
