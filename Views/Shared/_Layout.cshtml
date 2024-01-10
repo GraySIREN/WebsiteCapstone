@@ -32,8 +32,10 @@
     }
 
         .rounded-social-buttons .social-button {
+            text-align: center; /* Add this line */
+            vertical-align: middle; /* Add this line */
             display: inline-block;
-            position: relative;
+            position: center;
             cursor: pointer;
             width: 3.125rem;
             height: 3.125rem;
@@ -52,6 +54,8 @@
         }
 
             .rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+                align-content: center;
+                justify-content: center; 
                 -webkit-transform: rotate(720deg);
                 -ms-transform: rotate(360deg);
                 transform: rotate(360deg);

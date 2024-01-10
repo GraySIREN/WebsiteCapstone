@@ -62,7 +62,148 @@
         align-content: center;
         text-align: center;
     }
+
+    /* Style for the card container */
+    .card-container {
+        display: flex; /* Use flexbox to create a row */
+        justify-content: space-around; /* Distribute space evenly between cards */
+        flex-wrap: wrap; /* Allow cards to wrap to the next row if necessary */
+        max-width: 1000px; /* Set a maximum width for better responsiveness */
+        margin: 0 auto; /* Center the container */
+    }
+    /* Style for each individual card */
+    .card {
+        width: 200px; /* Set a fixed width for each card */
+        margin: 10px; /* Add some margin for spacing */
+        padding: 15px; /* Add padding for content inside the card */
+        border: 1px solid #ccc; /* Add a border for a visual separation */
+        border-radius: 12px; /* Optional: Add border-radius for rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+    }
+
+    .stats-container {
+        display: grid;
+        justify-content: center;
+        gap: 10px;
+        width: 500px;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+        background-color: slategray;
+        transition: backdrop-filter 0.3s ease; /* Add transition for a smoother effect */
+        backdrop-filter: blur(0); /* Initial state with no blur */
+    }
+
+        .stats-container:hover {
+            backdrop-filter: blur(5px); /* Apply blur on hover */
+        }
+
+    .grid-item {
+        text-align: center; /* Center text horizontally */
+        align-items: center; /* Center text vertically */
+        width: 100%;
+        background-color: #468499;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease; /* Add transition for a smoother effect */
+    }
+
+        .grid-item:hover {
+            transform: scale(1.1); /* Increase size on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add drop shadow on hover */
+        }
+
+            .grid-item:hover p {
+                font-size: 1.2em; /* Increase text size on hover */
+            }
+
+
+    .grid-item-1 {
+        justify-content: space-around;
+        grid-row: 1/6;
+        grid-column: 1/6;
+        gap: 10px;
+        width: 100%;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item-2 {
+        justify-content: space-around;
+        grid-row: 1/6;
+        grid-column: 6/12;
+        gap: 10px;
+        width: 100%;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item-3 {
+        justify-content: space-around;
+        grid-row: 7/12;
+        grid-column: 1/4;
+        gap: 10px;
+        width: 100%;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item-4 {
+        justify-content: space-around;
+        grid-row: 7/12;
+        grid-column: 4/8;
+        gap: 10px;
+        width: 100%;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+    /**/
+    .grid-item-5 {
+        justify-content: space-around;
+        grid-row: 7/10;
+        grid-column: 8/12;
+        gap: 10px;
+        width: 100%;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item-6 {
+        justify-content: space-around;
+        grid-row: 10/12;
+        grid-column: 8/12;
+        gap: 10px;
+        width: 100%;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
 </style>
+
+
 
 @* *************************************************************************** *@
 
@@ -76,64 +217,61 @@
 </head>
 <body>
     <div id="game-container">
-        <!-- Display player's hand -->
+        <div class="card-container">
+            <!-- Display player's hand -->
+            <div id="player-hand"></div>
+            <!-- Card 1 -->
+            <div class="card">
+                <h2>Card 1</h2>
+                <p>Card content goes here.</p>
+            </div>
 
-        <div id="player-hand"></div>
-        <div class="row justify-content-fluid">
-            <div class="col-3">
-                <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                    <img src="https://i.imgur.com/j4ebqJG.png" class="card-img-top" alt="https://i.imgur.com/j4ebqJG.png">
-                    <div class="card-body">
-                        @*Body text*@
-                        <h5 class="card-title"> Player Card 1</h5>
-                        <p class="card-text">@**@</p>
-                    </div>
-                </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <h2>Card 2</h2>
+                <p>Card content goes here.</p>
             </div>
-            <div class="col-3">
-                <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                    <img src="https://i.imgur.com/Rz7h1P8.png" class="card-img-top" alt="https://i.imgur.com/Rz7h1P8.png">
-                    <div class="card-body">
-                        <h5 class="card-title">Player Card 2</h5>
-                        <p class="card-text">@**@</p>
-                    </div>
-                </div>
-            </div>
+
+
             <!-- Display dealer's hand -->
-
             <div id="dealer-hand"></div>
-            <div class="col-3">
-                <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                    <img src="https://i.imgur.com/IwfREXs.png" class="card-img-top" alt="https://i.imgur.com/IwfREXs.png">
-                    <div class="card-body">
-                        <h5 class="card-title">Dealer Card 1</h5>
-                        <p class="card-text">@**@</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card" style=" resize: both; height: 500px; width: 300px; border-top-left-radius: 25px; border-top-right-radius: 25px;">
-                    <img src="https://i.imgur.com/GlT5DyI.png" class="card-img-top" alt="https://i.imgur.com/GlT5DyI.png">
-                    <div class="card-body">
-                        <h5 class="card-title">Dealer Card 2</h5>
-                        <p class="card-text">@**@</p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <!-- Action buttons -->
-            <div id="buttons">
-                <button onclick="hit()">Hit</button>
-                <button onclick="stand()">Stand</button>
+            <!-- Card 3 -->
+            <div class="card">
+                <h2>Card 3</h2>
+                <p>Card content goes here.</p>
             </div>
 
-            <!-- Display messages -->
-            <div id="message"></div>
+            <!-- Card 4 -->
+            <div class="card">
+                <h2>Card 4</h2>
+                <p>Card content goes here.</p>
+            </div>
         </div>
+    </div>
 
-        <script src="game.js"></script>
+    <div class="stats-container">
+        <div class="grid-item grid-item-1">Player Hand Total: <span id="playerTotal">21</span></div>
+        <div class="grid-item grid-item-2">Dealer Hand Total: <span id="dealerTotal">19</span></div>
+        <div class="grid-item grid-item-3">Bankroll: <span id="bankroll">$250</span></div>
+        <div class="grid-item grid-item-4">Bet Amount: <span id="betAmount">$37</span></div>
+        <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$187</span></div>
+        <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses">$0</span></div>
+    </div>
+
+
+    <!-- Action buttons -->
+    <div id="buttons">
+        <button onclick="hit()">Hit</button>
+        <button onclick="stand()">Stand</button>
+    </div>
+
+    <!-- Display messages -->
+    <div id="message"></div>
+
+    <script src="game.js"></script>
 </body>
 </html>
+
 
 @* *************************************************************************** *@
 
