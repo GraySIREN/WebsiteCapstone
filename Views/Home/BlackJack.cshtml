@@ -24,6 +24,7 @@
     }
 @* *************************************************************************** *@
 @* *************************************************************************** *@
+@* Standard Card Size: 2.5'x3.5'  : 240px x 336px   *@
 
     .row-container {
         display: flex;
@@ -92,7 +93,7 @@
 
         .deck-card {
             justify-content: center;
-            padding: 20px;
+            padding: 10px;
             border-radius: 12px;
             margin: 0 auto;
         }
@@ -329,9 +330,14 @@
         </div>
     </div>
 
-    <!-- Stats container and Deck in the same row -->
     <div class="row-container">
-        <!-- Stats content -->
+        <!-- Additional Cards Container -->
+        <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
+        <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
+        <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
+        <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
+        <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
+
         <div class="stats-container">
             <div class="grid-item grid-item-1">Player Hand Total: <span id="playerTotal">21</span></div>
             <div class="grid-item grid-item-2">Dealer Hand Total: <span id="dealerTotal">19</span></div>
@@ -339,7 +345,6 @@
             <div class="grid-item grid-item-4">
                 Bet Amount:
                 <select id="betAmountDropdown" onchange="updateBetAmount()">
-                    <!-- Add options for increments of $5 up to $100 -->
                     <option value="5">$5</option>
                     <option value="10">$10</option>
                     <option value="15">$15</option>
@@ -353,8 +358,8 @@
             <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$190</span></div>
             <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses">$0</span></div>
             <div class="grid item grid-item-7 card deck-card" style="background-image: url('https://i.imgur.com/FtexaXr.jpeg'); resize: both; height: 224px; width: 160px;">Deck<span poster="deck"></span></div>
-            </div>
         </div>
+    </div>
 
     <!-- Action buttons -->
     <div id="buttons">
