@@ -28,6 +28,22 @@
             color: #065535;
         }
 
+    .navbar {
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+        color: white !important;
+        background: #133337;
+        border: solid 2px white;
+        border-radius: 25px;
+    }
+
+    .nav-link {
+        display: flex;
+        color: white !important;
+
+    }
+
     @@charset "UTF-8";
 
     .svg-inline--fa {
@@ -146,7 +162,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Website Capstone</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -154,28 +170,28 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 ">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         @* Add my own unique View *@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="MediaPortfolio">MediaPortfolio</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="MediaPortfolio">MediaPortfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Social">Social</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Social">Social</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CubeSmash">CubeSmash</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="CubeSmash">CubeSmash</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BlackJack">BlackJack</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="BlackJack">BlackJack</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="JS">JavaScript 30 Days</a>
+                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="JS">JavaScript 30 Days</a>
                         </li>
                     </ul>
                 </div>

@@ -2,7 +2,9 @@
     body {
         margin: 0;
         padding: 0;
-        background: #627461;
+        background: linear-gradient(to top right, #06554c, #627461);
+        height: auto;
+        transform: scale(0.9);
     }
 
     #game-container {
@@ -27,11 +29,34 @@
 @* *************************************************************************** *@
 @* Standard Card Size: 2.5'x3.5'  : 240px x 336px   *@
 
-    .row-container {
+    .row-container-1 {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 20px;
+    }
+
+    .row-container-2 {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    #game-updates {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 50px;
+        margin-top: 20px;
+        border: solid 4px #133337;
+        border-radius: 25px;
+        padding: 25px;
+        color: black;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(to top right, #468499, #cb7554); /*How to add gradient element*/
+        height: auto; /* Make sure the gradient covers the entire viewport height */
     }
 
     /* Style for the card container */
@@ -52,7 +77,7 @@
         height: 336px;
         width: 240px;
         padding: 15px;
-        border: 1px solid #ccc;
+        border: 1px solid #133337;
         border-radius: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.1s ease-in-out, box-shadow 0.1s;
@@ -107,7 +132,7 @@
         gap: 10px;
         width: 500px;
         height: 350px auto;
-        border: 2px solid #eef;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -121,7 +146,7 @@
         align-items: center; /* Center text vertically */
         width: 100%;
         background-color: #468499;
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -143,7 +168,7 @@
         grid-column: 1/12;
         gap: 10px;
         width: 100%;
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -156,7 +181,7 @@
         grid-column: 12/24;
         gap: 10px;
         width: 100%;
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -169,7 +194,7 @@
         grid-column: 1/8;
         gap: 10px;
         width: 100%;
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -182,7 +207,7 @@
         grid-column: 1/8;
         gap: 10px;
         width: 100%;
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         color: #fff;
         padding: 20px;
@@ -210,7 +235,7 @@
         grid-column: 17/24;
         gap: 10px;
         width: 100%;
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -223,7 +248,7 @@
         grid-column: 17/24;
         gap: 10px;
         width: 100%;
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -235,7 +260,7 @@
         grid-row: 13/24;
         grid-column: 9/16;
         gap: 10px;
-        border: solid 2px #eee;
+        border: solid 2px #133337;
         border-radius: 25px;
         padding: 20px;
         margin: 0 auto;
@@ -248,7 +273,7 @@
         width: 350px;
         margin-top: 20px;
         background-color: #468499; /*Hit and Stand Button Container Background*/
-        border: 2px solid #eee;
+        border: 2px solid #133337;
         border-radius: 25px;
         padding: 20px;
         margin-bottom: 12px;
@@ -292,7 +317,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="site.css">
 </head>
 <body>
     <div id="game-container">
@@ -303,13 +328,13 @@
 
             <!-- Card 1 -->
             <div class="card" style="background-image: url('https://i.imgur.com/j4ebqJG.png');">
-                <h2>Card 1</h2>
+                <h2>Player Card 1</h2>
                 <p>Card content goes here.</p>
             </div>
 
             <!-- Card 2 -->
-            <div class="card" style="background-image: url('https://i.imgur.com/SrTxfYE.png');">
-                <h2>Card 2</h2>
+            <div class="card" style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;">
+                <h2>Player Card 2</h2>
                 <p>Card content goes here.</p>
             </div>
 
@@ -318,19 +343,19 @@
 
             <!-- Card 3 -->
             <div class="card" style="background-image: url('https://i.imgur.com/WVou0eM.png');">
-                <h2>Card 3</h2>
-                <p>Card content goes here.</p>
+                <h2>Dealer Card 1</h2>
+                <p>Facedown.</p>
             </div>
 
             <!-- Card 4 -->
             <div class="card" style="resize: inherit; background-image: url('https://i.imgur.com/iMamH3Q.png');">
-                <h2>Card 4</h2>
-                <p>Card content goes here.</p>
+                <h2>Dealer Card 2</h2>
+                <p>Face-up.</p>
             </div>
         </div>
     </div>
 
-    <div class="row-container">
+    <div class="row-container-1">
         <!-- Additional Cards Container -->
         <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
         <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
@@ -338,6 +363,7 @@
         <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px; margin-right: 10px;"></div>
         <div class="card" style="border: solid 6px #133337; border-radius: 25px; resize: both; width: 120px; height: 168px; padding: 10px;"></div>
 
+        <!-- Game Stats Container -->
         <div class="stats-container">
             <div class="grid-item grid-item-1">Player Hand Total: <span id="playerTotal">21</span></div>
             <div class="grid-item grid-item-2">Dealer Hand Total: <span id="dealerTotal">19</span></div>
@@ -349,8 +375,21 @@
                     <option value="10">$10</option>
                     <option value="15">$15</option>
                     <option value="20">$20</option>
+                    <option value="25">$25</option>
                     <option value="30">$30</option>
+                    <option value="35">$35</option>
+                    <option value="40">$40</option>
+                    <option value="45">$45</option>
                     <option value="50">$50</option>
+                    <option value="55">$55</option>
+                    <option value="60">$60</option>
+                    <option value="65">$65</option>
+                    <option value="70">$70</option>
+                    <option value="75">$75</option>
+                    <option value="80">$80</option>
+                    <option value="85">$85</option>
+                    <option value="90">$90</option>
+                    <option value="95">$95</option>
                     <option value="100">$100</option>
                 </select>
                 <button onclick="submitBet()">Submit</button>
@@ -361,15 +400,18 @@
         </div>
     </div>
 
-    <!-- Action buttons -->
-    <div id="buttons">
-        <button onclick="hit()">Hit</button>
-        <button onclick="stand()">Stand</button>
+    <div class="row-container-2">
+        <!-- Display messages -->
+        <div id="game-updates">Game Updates Go HERE</div>
+
+        <!-- Action buttons -->
+        <div id="buttons">
+            <button onclick="hit()">Hit</button>
+            <button onclick="stand()">Stand</button>
+        </div>
     </div>
 
-    <!-- Display messages -->
-    <div id="message"></div>
-
+    <!--Reference to the file that will hold the script code for the converted C# game file-->
     <script src="game.js"></script>
 </body>
 </html>
