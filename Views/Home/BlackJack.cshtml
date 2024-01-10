@@ -32,11 +32,6 @@
         margin-top: 20px; /* Adjust the margin as needed */
     }
 
-    /* Style for the deck card */
-    .deck-card {
-        margin-right: 20px; /* Add margin to separate the deck card from stats-container */
-    }
-
     /* Style for the card container */
     .card-container {
         margin: 0;
@@ -98,6 +93,7 @@
     .stats-container {
         display: grid;
         justify-content: center;
+        padding: 20px;
         margin-bottom: 20px;
         gap: 10px;
         width: 500px;
@@ -160,7 +156,7 @@
 
     .grid-item-3 {
         justify-content: space-around;
-        grid-row: 13/24;
+        grid-row: 13/18;
         grid-column: 1/8;
         gap: 10px;
         width: 100%;
@@ -173,8 +169,8 @@
 
     .grid-item-4 {
         justify-content: space-around;
-        grid-row: 13/24;
-        grid-column: 9/16;
+        grid-row: 19/24;
+        grid-column: 1/8;
         gap: 10px;
         width: 100%;
         border: 2px solid #eee;
@@ -221,6 +217,18 @@
         border: 2px solid #eee;
         border-radius: 25px;
         padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-item-7 {
+        justify-content: space-around;
+        grid-row: 13/24;
+        grid-column: 9/16;
+        gap: 10px;
+        border: 2px solid #eee;
+        border-radius: 25px;
+        padding: 25px;
         margin: 0 auto;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
@@ -296,7 +304,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="card" style="background-image: url('https://i.imgur.com/iMamH3Q.png');">
+            <div class="card" style="resize: inherit; background-image: url('https://i.imgur.com/iMamH3Q.png');">
                 <h2>Card 4</h2>
                 <p>Card content goes here.</p>
             </div>
@@ -324,16 +332,11 @@
                 </select>
                 <button onclick="submitBet()">Submit</button>
             </div>
-
-            <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$187</span></div>
+            <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$190</span></div>
             <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses">$0</span></div>
+            <div class="grid item grid-item-7 card deck-card" style="background-image: url('https://i.imgur.com/FtexaXr.jpeg'); resize: both; height: 224px; width: 160px;"></div>
+            </div>
         </div>
-        <!-- Deck card moved to the right of the stats container -->
-        <div class="card deck-card" style="resize: both; height: 300px; width: 175px; background-image: url('https://i.imgur.com/FtexaXr.jpeg')">
-            <h2>Deck</h2>
-            <p>Card content goes here.</p>
-        </div>
-    </div>
 
     <!-- Action buttons -->
     <div id="buttons">
