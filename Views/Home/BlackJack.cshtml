@@ -90,6 +90,13 @@
             box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
         }
 
+        .deck-card {
+            justify-content: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 0 auto;
+        }
+
     .stats-container {
         display: grid;
         justify-content: center;
@@ -226,11 +233,11 @@
         grid-row: 13/24;
         grid-column: 9/16;
         gap: 10px;
-        border: 2px solid #eee;
+        border: solid 2px #eee;
         border-radius: 25px;
-        padding: 25px;
+        padding: 20px;
         margin: 0 auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.1);
     }
 
     #buttons {
@@ -253,13 +260,24 @@
             width: 100px; /* Adjust the width as needed */
             height: 40px; /* Adjust the height as needed */
             margin: 0 5px; /* Add margin between buttons */
+            background-color: #6bbd67;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
             #buttons button:hover {
                 transform: scale(1.1); /* Increase size on hover */
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add drop shadow on hover */
+                background-color: slategray;
             }
 
+            #buttons button.clicked {
+                transform: scale(1.6);
+                animation: flash 0.5s ease; /* Add animation for the flash effect */
+            }
 
 </style>
 
@@ -334,7 +352,7 @@
             </div>
             <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$190</span></div>
             <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses">$0</span></div>
-            <div class="grid item grid-item-7 card deck-card" style="background-image: url('https://i.imgur.com/FtexaXr.jpeg'); resize: both; height: 224px; width: 160px;"></div>
+            <div class="grid item grid-item-7 card deck-card" style="background-image: url('https://i.imgur.com/FtexaXr.jpeg'); resize: both; height: 224px; width: 160px;">Deck<span poster="deck"></span></div>
             </div>
         </div>
 
@@ -416,6 +434,24 @@
         // For now, let's just log it to the console
         console.log("Submitted bet amount: $" + selectedValue);
     }
+
+
+        function hit() {
+    var button = document.getElementById("hitButton");
+        button.classList.add("clicked");
+        setTimeout(function () {
+            button.classList.remove("clicked");
+    }, 500); // Adjust the duration of the flash effect (in milliseconds)
+}
+
+        function stand() {
+    var button = document.getElementById("standButton");
+        button.classList.add("clicked");
+        setTimeout(function () {
+            button.classList.remove("clicked");
+    }, 500); // Adjust the duration of the flash effect (in milliseconds)
+}
+
 </script>
 
 
