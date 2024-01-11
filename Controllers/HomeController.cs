@@ -36,11 +36,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult CubeSmash()
-    {
-        return View();
-    }
-
     public IActionResult JS()
     {
         return View();
