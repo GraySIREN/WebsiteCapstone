@@ -323,35 +323,34 @@
 <body>
     <div id="game-container">
         <div class="card-container">
-
             <!-- Display player's hand -->
             <div id="player-hand"></div>
 
             <!-- Card 1 -->
-            <div class="card" style="background-image: url('https://i.imgur.com/j4ebqJG.png');">
-                <h2>Player Card 1</h2>
-                <p>Card content goes here.</p>
+            <div class="card" id="playerCard1" style="background-image: url('https://i.imgur.com/j4ebqJG.png');">
+                <h2></h2>
+                <p></p>
             </div>
 
             <!-- Card 2 -->
-            <div class="card" style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;">
-                <h2>Player Card 2</h2>
-                <p>Card content goes here.</p>
+            <div class="card" id="playerCard2" style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;">
+                <h2></h2>
+                <p></p>
             </div>
 
             <!-- Display dealer's hand -->
             <div id="dealer-hand"></div>
 
             <!-- Card 3 -->
-            <div class="card" style="background-image: url('https://i.imgur.com/WVou0eM.png');">
-                <h2>Dealer Card 1</h2>
-                <p>Facedown.</p>
+            <div class="card" id="dealerCard1" style="background-image: url('https://i.imgur.com/WVou0eM.png');">
+                <h2></h2>
+                <p></p>
             </div>
 
             <!-- Card 4 -->
-            <div class="card" style="resize: inherit; background-image: url('https://i.imgur.com/iMamH3Q.png');">
-                <h2>Dealer Card 2</h2>
-                <p>Face-up.</p>
+            <div class="card" id="dealerCard2" style="resize: inherit; background-image: url('https://i.imgur.com/iMamH3Q.png');">
+                <h2></h2>
+                <p></p>
             </div>
         </div>
     </div>
@@ -366,9 +365,9 @@
 
         <!-- Game Stats Container -->
         <div class="stats-container">
-            <div class="grid-item grid-item-1">Player Hand Total: <span id="playerTotal">21</span></div>
-            <div class="grid-item grid-item-2">Dealer Hand Total: <span id="dealerTotal">19</span></div>
-            <div class="grid-item grid-item-3">Bankroll: <span id="bankroll">$250</span></div>
+            <div class="grid-item grid-item-1">Player Hand Total: <span id="playerTotal"></span></div>
+            <div class="grid-item grid-item-2">Dealer Hand Total: <span id="dealerTotal"></span></div>
+            <div class="grid-item grid-item-3">Bankroll: <span id="bankroll"></span></div>
             <div class="grid-item grid-item-4">
                 Bet Amount:
                 <select id="betAmountDropdown" onchange="updateBetAmount()">
@@ -395,15 +394,15 @@
                 </select>
                 <button onclick="submitBet()">Submit</button>
             </div>
-            <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins">$190</span></div>
-            <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses">$0</span></div>
+            <div class="grid-item grid-item-5">Total Winnings: <span id="totalWins"></span></div>
+            <div class="grid-item grid-item-6">Total Loss: <span id="totalLosses"></span></div>
             <div class="grid item grid-item-7 card deck-card" style="background-image: url('https://i.imgur.com/FtexaXr.jpeg'); resize: both; height: 210px; width: 150px;">Deck<span poster="deck"></span></div>
         </div>
     </div>
 
     <div class="row-container-2">
         <!-- Display messages -->
-        <div id="game-updates">Game Updates Go HERE</div>
+        <div id="game-updates"></div>
 
         <!-- Action buttons -->
         <div id="buttons">
@@ -421,6 +420,7 @@
 @* *************************************************************************** *@
 
 <script>// game.js
+
     let deck = [];
     let playerHand = [];
     let dealerHand = [];
@@ -428,44 +428,156 @@
 
     function startGame() {
         // Initialize deck and other game variables
-        // ...
+        initializeDeck();
+        playerHand = [];
+        dealerHand = [];
 
         // Deal initial cards
-        // ...
+        dealInitialCards();
 
         // Display initial game state
-        // ...
+        displayGameState();
     }
 
-    function hit() {
-        // Implement hit logic
-        // ...
+    function displayGameState() {
+        // Update content for Player Card 1
+        updateCardContent('playerCard1', playerHand[0]);
 
-        // Update game state and display
-        // ...
+        // Update content for Player Card 2
+        updateCardContent('playerCard2', playerHand[1]);
+
+        // Display player's hand
+        console.log("Player's Hand: ", playerHand);
+
+        // Display dealer's hand
+        console.log("Dealer's Hand: ", dealerHand);
+
+        // Display bankroll
+        console.log("Bankroll: $" + bankRollAmount);
     }
 
-    function stand() {
-        // Implement stand logic
-        // ...
+    function displayGameUpdates(message) {
+        // Update content in the game-updates container
+        const gameUpdatesContainer = document.getElementById('game-updates');
+        if (gameUpdatesContainer) {
+            gameUpdatesContainer.textContent = message;
+        }
 
-        // Update game state and display
-        // ...
+        // You can also log the message to the console for debugging
+        console.log(message);
+    }
+
+    function updateCardContent(cardId, card) {
+        // Update the content of the specified card element
+        const cardElement = document.getElementById(cardId);
+        if (cardElement) {
+            cardElement.querySelector('h2').textContent = card.faceValue + ' of ' + card.suit;
+            // You can customize how you want to display the card content in the <p> element.
+            cardElement.querySelector('p').textContent = 'Card content goes here.';
+        }
+    }
+
+
+    function initializeDeck() {
+        // Create a standard deck of 52 cards
+        const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+        const faceValues = ["Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"];
+
+        deck = [];
+
+        for (const suit of suits) {
+            for (const faceValue of faceValues) {
+                deck.push({ suit, faceValue });
+            }
+        }
+
+        shuffleDeck();
+    }
+
+    function shuffleDeck() {
+        // Shuffle the deck using Fisher-Yates algorithm
+        let currentIndex = deck.length, randomIndex;
+
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [deck[currentIndex], deck[randomIndex]] = [deck[randomIndex], deck[currentIndex]];
+        }
+    }
+
+    function dealInitialCards() {
+        // Deal 2 cards to the player and 1 card to the dealer
+        playerHand.push(drawCard());
+        playerHand.push(drawCard());
+        dealerHand.push(drawCard());
+    }
+
+    function drawCard() {
+        // Draw a card from the deck
+        return deck.pop();
     }
 
     function displayGameState() {
         // Display player's hand
-        // ...
+        console.log("Player's Hand: ", playerHand);
 
         // Display dealer's hand
+        console.log("Dealer's Hand: ", dealerHand);
+
+        // Display bankroll
+        console.log("Bankroll: $" + bankRollAmount);
+    }
+
+    function hit() {
+        // Player requests another card
+        playerHand.push(drawCard());
+
+        // Check if the player busts
+        if (calculateHandValue(playerHand) > 21) {
+            console.log("Player Busts! Dealer Wins!");
+            // Update bankroll accordingly
+            bankRollAmount -= betAmount;
+        }
+
+        // Update game state and display
+        displayGameState();
+    }
+
+    function stand() {
+        // Dealer draws cards until their total is 17 or higher
+        while (calculateHandValue(dealerHand) < 17) {
+            dealerHand.push(drawCard());
+        }
+
+        // Determine the winner
+        determineWinner();
+
+        // Update game state and display
+        displayGameState();
+    }
+
+    function calculateHandValue(hand) {
+        // Calculate the total value of a hand
         // ...
 
-        // Display bankroll and messages
+        return total;
+    }
+
+    function determineWinner() {
+        // Determine the winner based on the hand values
+        // ...
+
+        // Update bankroll accordingly
         // ...
     }
 
     // Other game functions...
-    <script>
+
+    // Example: Call startGame() when the page loads
+    window.onload = startGame;
+
+    // Other game functions...
     function updateBetAmount() {
         // Get the selected value from the dropdown
         var selectedValue = document.getElementById("betAmountDropdown").value;
@@ -475,30 +587,28 @@
     }
 
         function submitBet() {
-        // Get the selected value from the dropdown
-        var selectedValue = document.getElementById("betAmountDropdown").value;
+            // Get the selected value from the dropdown
+            var selectedValue = document.getElementById("betAmountDropdown").value;
 
-        // You can add your logic here to handle the submitted bet amount
-        // For now, let's just log it to the console
-        console.log("Submitted bet amount: $" + selectedValue);
-    }
+            // You can add your logic here to handle the submitted bet amount
+            // For now, let's just log it to the console
+            console.log("Submitted bet amount: $" + selectedValue);
+        }
 
 
         function hit() {
-    var button = document.getElementById("hitButton");
-        button.classList.add("clicked");
-        setTimeout(function () {
-            button.classList.remove("clicked");
-    }, 500); // Adjust the duration of the flash effect (in milliseconds)
-}
+            var button = document.getElementById("hitButton");
+            button.classList.add("clicked");
+            setTimeout(function () {
+            button.classList.remove("clicked");}, 500); // Adjust the duration of the flash effect (in milliseconds)
+        }
 
         function stand() {
-    var button = document.getElementById("standButton");
-        button.classList.add("clicked");
-        setTimeout(function () {
-            button.classList.remove("clicked");
-    }, 500); // Adjust the duration of the flash effect (in milliseconds)
-}
+            var button = document.getElementById("standButton");
+            button.classList.add("clicked");
+            setTimeout(function () {
+            button.classList.remove("clicked");}, 500); // Adjust the duration of the flash effect (in milliseconds)
+        }
 
 </script>
 
