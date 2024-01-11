@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lZeOWcXcGu2733+GKSLeU37OlyO66/p2hWrFPzFDL+U=",
+  "Hash": "6fuaEWFLcuhbLOoWMzrbLhRUK4F90i2bYTNyTY1x3rE=",
   "Source": "WebsiteCapstone",
   "BasePath": "_content/WebsiteCapstone",
   "Mode": "Default",
@@ -831,6 +831,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/wwwroot/js/game.js",
+      "SourceId": "WebsiteCapstone",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/wwwroot/",
+      "BasePath": "_content/WebsiteCapstone",
+      "RelativePath": "js/game.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/game.js"
     },
     {
       "Identity": "/Users/aaron/Projects/WebsiteCapstone_ClonedRepo/wwwroot/js/site.js",
