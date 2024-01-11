@@ -1,4 +1,4 @@
-﻿const gameMessagesContainer = document.getElementById('game-messages');
+﻿const gameMessagesContainer = document.getElementById('game-updates');
 const playerHandContainer = document.getElementById('player-hand');
 const dealerHandContainer = document.getElementById('dealer-hand');
 const gameUpdatesContainer = document.getElementById('game-updates');
