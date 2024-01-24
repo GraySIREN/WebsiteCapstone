@@ -85,7 +85,7 @@
         animation: ease-in-out;
         background: center;
         background-size: cover;
-        color: #fff;
+        color: black;
         z-index: 1; /* Ensure text is above the background image */
         display: flex;
         flex-direction: column;
@@ -329,13 +329,13 @@
             <div id="player-hand"></div>
 
             <!-- Card 1 -->
-            <div class="card" id="#playerCard1" style="background-image: url('https://i.imgur.com/j4ebqJG.png');">
+            <div class="card" id="#playerCard1" @*style="background-image: url('https://i.imgur.com/j4ebqJG.png');"*@>
                 <h2></h2>
                 <p></p>
             </div>
 
             <!-- Card 2 -->
-            <div class="card" id="#playerCard2" style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;">
+            <div class="card" id="#playerCard2" @*style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;"*@>
                 <h2></h2>
                 <p></p>
             </div>
@@ -344,13 +344,13 @@
             <div id="dealer-hand"></div>
 
             <!-- Card 3 -->
-            <div class="card" id="dealerCard1" style="background-image: url('https://i.imgur.com/WVou0eM.png');">
+            <div class="card" id="dealerCard1" @*style="background-image: url('https://i.imgur.com/WVou0eM.png');"*@>
                 <h2></h2>
                 <p></p>
             </div>
 
             <!-- Card 4 -->
-            <div class="card" id="dealerCard2" style="resize: inherit; background-image: url('https://i.imgur.com/iMamH3Q.png');">
+            <div class="card" id="dealerCard2" style="resize: inherit; background-image: url('');">
                 <h2></h2>
                 <p></p>
             </div>
@@ -416,7 +416,7 @@
 
     <!--Reference to the file that will hold the script code for the converted C# game file-->
     <script src="game.js"></script>
-    <style scr="BlackJack.cshtml"></style>
+    <style scr="BlackJack.cshtml"></!--style>
 </body>
 </html>
 
