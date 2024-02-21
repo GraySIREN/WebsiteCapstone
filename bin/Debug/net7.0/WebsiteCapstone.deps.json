@@ -8,13 +8,15 @@
     ".NETCoreApp,Version=v7.0": {
       "WebsiteCapstone/1.0.0": {
         "dependencies": {
-          "bootstrap": "5.3.2"
+          "bootstrap": "5.3.2",
+          "jQuery": "3.7.1"
         },
         "runtime": {
           "WebsiteCapstone.dll": {}
         }
       },
-      "bootstrap/5.3.2": {}
+      "bootstrap/5.3.2": {},
+      "jQuery/3.7.1": {}
     }
   },
   "libraries": {
@@ -29,6 +31,13 @@
       "sha512": "sha512-m0/GEaLwE35B8P1xScFhwAsQi5o6kWPzOVPdGkoFwv+5YjmbgXFPQai71N5APwRCU52ZO4vHYWJ5DYSqKKgivw==",
       "path": "bootstrap/5.3.2",
       "hashPath": "bootstrap.5.3.2.nupkg.sha512"
+    },
+    "jQuery/3.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rF8hnQxmBMlIspf8VN72bALtmIpKx6hKRpUdTOkp/8JzfF8KgNqHut5lOy9kFGvFIStumCqJ+PBxpI9gxpRYfQ==",
+      "path": "jquery/3.7.1",
+      "hashPath": "jquery.3.7.1.nupkg.sha512"
     }
   }
 }

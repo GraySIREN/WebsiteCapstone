@@ -1,4 +1,6 @@
-﻿body {
+﻿/*Stylesheet for BlackJack Game*/
+
+body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
@@ -38,23 +40,26 @@
     justify-content: left;
     align-items: center;
     margin-top: 20px;
+    padding: 10px;
 }
 
-#game-updates {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 50px;
-    margin-top: 20px;
-    border: solid 4px #133337;
-    border-radius: 25px;
-    padding: 25px;
-    color: black;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(to top right, #468499, #cb7554); /*How to add gradient element*/
-    height: auto; /* Make sure the gradient covers the entire viewport height */
-}
+    #game-updates {
+        display: block;
+        height: 400px;
+        width: 400px;
+        justify-content: center;
+        color: black;
+        align-items: center;
+        margin-right: 50px;
+        margin-top: 20px;
+        border: solid 4px #133337;
+        border-radius: 25px;
+        padding: 25px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        /*background: linear-gradient(to top right, #468499, #cb7554);*/ /*How to add gradient element*/
+        /*height: auto;*/ /* Make sure the gradient covers the entire viewport height */
+    }
 
 /* Style for the card container */
 .card-container {
@@ -112,6 +117,32 @@
     .card:hover {
         transform: translateY(-0.5rem) scale(1.0125);
         box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
+    }
+
+
+
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
     }
 
 .deck-card {
@@ -268,6 +299,7 @@
     text-align: center; /* Center text horizontally */
     align-items: center; /* Center text vertically */
     width: 350px auto;
+    padding: 25px;
     margin-top: 20px;
     background-color: #468499; /*Hit and Stand Button Container Background*/
     border: 2px solid #133337;

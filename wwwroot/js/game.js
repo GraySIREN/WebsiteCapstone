@@ -66,19 +66,19 @@ function prompt(question) {
 
 //Prompt user for their name and Buy-In Value//
 
-let playerName = await prompt("Hello, what is your name? ");
-console.log(`Welcome to Blackjack, ${playerName}!`);
+let playerName = prompt("Hello, what is your name? ");
+updateGameUpdates(`Welcome to Blackjack, ${playerName}!`);
 
 const readline = require('readline');
 
 async function buyIn() {
-    console.log("Do you want to buy in at $10, $25, $50, or $100?");
+    updateGameUpdates("Do you want to buy in at $10, $25, $50, or $100?");
     let buyInValue;
 
     while (true) {
         buyInValue = parseInt(await prompt("Please enter [10], [25], [50], or [100]: "));
         if (![10, 25, 50, 100].includes(buyInValue)) {
-            console.log("Invalid response. Please enter [10], [25], [50], or [100].");
+            updateGameUpdates("Invalid response. Please enter [10], [25], [50], or [100].");
         } else {
             break;
         }
@@ -114,7 +114,7 @@ async function playBlackjack() {
         let dealerHand = [];
 
         let playerName = await prompt("Hello, what is your name? ");
-        console.log(`Welcome to Blackjack, ${playerName}!`);
+        updateGameUpdates(`Welcome to Blackjack, ${playerName}!`);
 
         let buyInValue = await buyIn();
         bankRollAmount += buyInValue;
@@ -127,29 +127,35 @@ async function playBlackjack() {
             dealerHand.push(deck.dealCard());
 
             if (bankRollAmount <= 0) {
-                console.log("Sorry! You have bust out. Better luck next time!");
+                updateGameUpdates("Sorry! You have bust out. Better luck next time!");
                 return;
             }
 
             let playerTotal = calculateHandValue(playerHand);
             let dealerTotal = calculateHandValue(dealerHand);
 
-            //Introduce betting mechanic//
-            let betValue;
-            while (true) {
-                console.log("How much would you like to bet? Min ($1) Max ($10000)");
-                betValue = parseInt(await prompt("Please enter the bet amount: "));
-                if (isNaN(betValue) || betValue < 1 || betValue > 10000 || betValue > bankRollAmount) {
-                    console.log("Invalid bet amount. Please enter an amount between $1.00 and $10000.");
-                } else {
-                    break;
-                }
+            // Function to update the bet amount when the dropdown value changes
+            updateGameUpdates('Please submit your bet now.')
+
+            function updateBetAmount() {
+                let betDropdown = document.getElementById('betAmountDropdown');
+                betValue = parseInt(betDropdown.value); // Get the selected value from the dropdown
             }
 
-            console.log(`You're betting $${betValue}. Good Luck, ${playerName}!`);
-            console.log("");
-            console.log(`Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
-            console.log(`Dealer lays one card facedown. Dealer's face-up card: ${displayCard(dealerHand[1])}`);
+            // Function to handle submitting the bet
+            function submitBet() {
+                if (isNaN(betValue) || betValue < 1 || betValue > 50 || betValue > bankRollAmount) {
+                    return; // Exit the function early if the bet amount is invalid
+                }
+
+
+                updateGameUpdates(`You're betting $${betValue}. Good Luck, ${playerName}!`);
+                updateGameUpdates("");
+                bankRollAmount - betValue;
+            }
+
+            updateGameUpdates(`Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
+            updateGameUpdates(`Dealer lays one card facedown. Dealer's face-up card: ${displayCard(dealerHand[1])}`);
 
 
             // Get the element where you want to display game updates
@@ -196,28 +202,29 @@ async function playBlackjack() {
             //End of round, ask user if they want to play again so long as they still have funds//
             function playAgain() {
                 if (bankRollAmount > 0) {
-                    console.log("Would you like to play another round? [Y] [N]");
-                    let anotherRound = (await prompt()).toUpperCase().charAt(0);
+                    updateGameUpdates("Would you like to play another round? [Y] [N]");
+                    let anotherRound = (prompt()).toUpperCase().charAt(0);
 
                     if (anotherRound === 'Y') {
                         playAgain = true;
                         continue;
                     } else if (anotherRound !== 'Y' && anotherRound) {
-                        console.log("Invalid Response. Please enter [Y] to play another round or [N] to quit the game.");
+                        updateGameUpdates("Invalid Response. Please enter [Y] to play another round or [N] to quit the game.");
                     } else if (anotherRound === 'N') {
-                        console.log("Okay, see ya again next time!");
+                        updateGameUpdates("Okay, see ya again next time!");
                         playAgain = false;
                         break;
                     }
-                } else {
-                    console.log(`Sorry, you have busted out of the game. You are at ${bankRollAmount}. Better luck next time!`);
+                
+                    else {
+                    updateGameUpdates(`Sorry, you have busted out of the game. You are at ${bankRollAmount}. Better luck next time!`);
                     break;
                 }
             }
-
-            // Function to update game messages
-            function updateGameMessages(message) {
-                gameUpdatesElement.textContent += message + '\n'; // Append new message to existing content
+            //Update the game messages to the user interface
+            function updateGameUpdates(message) {
+                const gameUpdatesElement = document.getElementById('game-updates');
+                gameUpdatesElement.innerHTML += `<p>${message}</p>`; // Append the message as a new paragraph
             }
         }
     }
@@ -266,9 +273,9 @@ function displayCard(card) {
 
 function determineWinner(playerTotal, dealerTotal, playerName) {
     if (playerTotal > 21) {
-        console.log("Player busts! Dealer wins!");
+        updateGameUpdates("Player busts! Dealer wins!");
         bankRollAmount -= betValue;
-        console.log(`- $${betValue}\nBankroll
-
+        updateGameUpdates(`- $${betValue}\nBankroll
+    
 
 playBlackjack();
