@@ -1,25 +1,23 @@
 ﻿<Properties StartupConfiguration="{A4B63674-FB8B-497F-A8DF-37E47DA204E0}|https" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.WebsiteCapstone PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Views/Home/BlackJack.cshtml">
     <Files>
-      <File FileName="wwwroot/css/site.css" Line="1" Column="1" />
-      <File FileName="Controllers/HomeController.cs" Line="37" Column="6" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="18" Column="33" />
-      <File FileName="Views/Home/Index.cshtml" Line="5" Column="1" />
-      <File FileName="Views/Home/MediaPortfolio.cshtml" Line="6" Column="28" />
-      <File FileName="Views/Home/Social.cshtml" Line="69" Column="38" />
-      <File FileName="Views/Home/BlackJack.cshtml" Line="274" Column="27" />
-      <File FileName="wwwroot/js/game.js" Line="72" Column="4" />
-      <File FileName="Views/Home/JS.cshtml" Line="3" Column="1" />
+      <File FileName="Controllers/HomeController.cs" />
+      <File FileName="Views/Shared/_Layout.cshtml" />
+      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="Views/Home/MediaPortfolio.cshtml" />
+      <File FileName="Views/Home/Social.cshtml" />
+      <File FileName="Views/Home/BlackJack.cshtml" Line="412" Column="71" />
+      <File FileName="wwwroot/js/game.js" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="WebsiteCapstone">
-            <Node name="WebsiteCapstone">
+            <Node name="WebsiteCapstone" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True">
@@ -37,7 +35,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.WebsiteCapstone PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

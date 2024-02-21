@@ -1,86 +1,264 @@
-﻿// Creating the Deck of Cards
-const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
-const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-const deck = suits.reduce((acc, suit) => {
-    values.forEach(value => acc.push({ suit, value }));
-    return acc;
-}, []);
+﻿
+//Initial Classes and functions//
 
-// Shuffling the Deck of Cards
-function shuffleDeck(deck) {
-    for (let i = deck.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [deck[i], deck[j]] = [deck[j], deck[i]];
+class Deck {
+    constructor() {
+        this.cards = [];
+        for (let suit in Suit) {
+            for (let faceValue in FaceValue) {
+                this.cards.push({ suit: suit, faceValue: faceValue });
+            }
+        }
+    }
+
+    shuffle() {
+        let n = this.cards.length;
+        while (n > 1) {
+            n--;
+            let k = Math.floor(Math.random() * (n + 1));
+            let value = this.cards[k];
+            this.cards[k] = this.cards[n];
+            this.cards[n] = value;
+        }
+    }
+
+    dealCard() {
+        return this.cards.shift();
     }
 }
 
-// Drawing a Card from the Deck
-function drawCard(deck) {
-    return deck.pop();
+const Suit = {
+    Spades: 'Spades',
+    Hearts: 'Hearts',
+    Diamonds: 'Diamonds',
+    Clubs: 'Clubs'
+};
+
+const FaceValue = {
+    Ace: 'Ace',
+    Two: 'Two',
+    Three: 'Three',
+    Four: 'Four',
+    Five: 'Five',
+    Six: 'Six',
+    Seven: 'Seven',
+    Eight: 'Eight',
+    Nine: 'Nine',
+    Ten: 'Ten',
+    Jack: 'Jack',
+    Queen: 'Queen',
+    King: 'King'
+};
+
+function prompt(question) {
+    return new Promise((resolve) => {
+        const readline = require('readline').createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+
+        readline.question(question, (answer) => {
+            resolve(answer);
+            readline.close();
+        });
+    });
 }
 
-// Defining the Game
-function game() {
-    shuffleDeck(deck);
-    let player = { score: 0, hand: [] };
-    let dealer = { score: 0, hand: [] };
+//Prompt user for their name and Buy-In Value//
 
-    // Player's Turn
-    player.hand.push(drawCard(deck));
-    player.hand.push(drawCard(deck));
-    player.score = player.hand.reduce((acc, card) => acc + getCardValue(card), 0);
-    let playerCard1 = document.querySelector('#playerCard1');
-    let playerCard2 = document.querySelector('#playerCard2');
-    // Dealer's Turn
+let playerName = await prompt("Hello, what is your name? ");
+console.log(`Welcome to Blackjack, ${playerName}!`);
 
-    dealer.hand.push(drawCard(deck));
-    dealer.hand.push(drawCard(deck));
-    dealer.score = dealer.hand.reduce((acc, card) => acc + getCardValue(card), 0);
+const readline = require('readline');
 
-    // Determining the Winner
-    while (player.score <= 21 && dealer.score <= 21) {
-        if (player.score > dealer.score) {
-            console.log('Player wins!');
-            break;
-        } else if (dealer.score > player.score) {
-            console.log('Dealer wins!');
-            break;
+async function buyIn() {
+    console.log("Do you want to buy in at $10, $25, $50, or $100?");
+    let buyInValue;
+
+    while (true) {
+        buyInValue = parseInt(await prompt("Please enter [10], [25], [50], or [100]: "));
+        if (![10, 25, 50, 100].includes(buyInValue)) {
+            console.log("Invalid response. Please enter [10], [25], [50], or [100].");
         } else {
-            console.log('It\'s a tie!');
             break;
         }
     }
 
-    // Outputting the Final Scores
-    console.log(`Player's Hand: ${player.hand.map(card => card.value).join(', ')}`);
-    console.log(`Dealer's Hand: ${dealer.hand.map(card => card.value).join(', ')}`);
-    console.log(`Player's Score: ${player.score}`);
-    console.log(`Dealer's Score: ${dealer.score}`);
+    return buyInValue;
 }
 
-// Defining the Function to Get the Card Value
-function getCardValue(card) {
-    if (isNaN(card.value)) {
-        return 10;
-    } else {
-        return Number(card.value);
+async function prompt(question) {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    return new Promise(resolve => {
+        rl.question(question, answer => {
+            resolve(answer);
+            rl.close();
+        });
+    });
+}
+
+async function playBlackjack() {
+    let deck = new Deck();
+    let playAgain = true;
+    let bankRollAmount = 0;
+
+    //After the first round, every sequential round will prompt user to ask if they want to play again//
+
+    while (playAgain) {
+        deck.shuffle();
+        let playerHand = [];
+        let dealerHand = [];
+
+        let playerName = await prompt("Hello, what is your name? ");
+        console.log(`Welcome to Blackjack, ${playerName}!`);
+
+        let buyInValue = await buyIn();
+        bankRollAmount += buyInValue;
+
+        while (bankRollAmount > 0) {
+            // Deal 2 new cards to player and dealer
+            playerHand.push(deck.dealCard());
+            dealerHand.push(deck.dealCard());
+            playerHand.push(deck.dealCard());
+            dealerHand.push(deck.dealCard());
+
+            if (bankRollAmount <= 0) {
+                console.log("Sorry! You have bust out. Better luck next time!");
+                return;
+            }
+
+            let playerTotal = calculateHandValue(playerHand);
+            let dealerTotal = calculateHandValue(dealerHand);
+
+            //Introduce betting mechanic//
+            let betValue;
+            while (true) {
+                console.log("How much would you like to bet? Min ($1) Max ($10000)");
+                betValue = parseInt(await prompt("Please enter the bet amount: "));
+                if (isNaN(betValue) || betValue < 1 || betValue > 10000 || betValue > bankRollAmount) {
+                    console.log("Invalid bet amount. Please enter an amount between $1.00 and $10000.");
+                } else {
+                    break;
+                }
+            }
+
+            console.log(`You're betting $${betValue}. Good Luck, ${playerName}!`);
+            console.log("");
+            console.log(`Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
+            console.log(`Dealer lays one card facedown. Dealer's face-up card: ${displayCard(dealerHand[1])}`);
+
+            // Actual Gameplay
+            document.getElementById('hit-button').addEventListener('click', hit);
+            document.getElementById('stand-button').addEventListener('click', stand);
+
+            async function hit() {
+                if (playerTotal < 21) {
+                    let newCard = deck.dealCard();
+                    playerHand.push(newCard);
+                    playerTotal = calculateHandValue(playerHand);
+                    console.log(`\n${playerName} drew ${displayCard(newCard)}`);
+                    console.log(`Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
+
+                    if (dealerTotal < 17) {
+                        let newCardDealer = deck.dealCard();
+                        dealerHand.push(newCardDealer);
+                        dealerTotal = calculateHandValue(dealerHand);
+                        console.log(`\nDealer has to hit. Dealer draws ${displayCard(newCardDealer)}`);
+                        console.log(`Dealer hand: FaceDown, ${displayCard(dealerHand[1])}, ${displayCard(newCard)}`);
+                    }
+                }
+            }
+
+            function stand() {
+                if (playerTotal < 21) {
+                    console.log(`${playerName} stands with a total of ${playerTotal}.`);
+
+                    // Dealer's turn
+                    while (dealerTotal < 17) {
+                        let newCardDealer = deck.dealCard();
+                        dealerHand.push(newCardDealer);
+                        dealerTotal = calculateHandValue(dealerHand);
+                        console.log(`Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: ${displayHand(dealerHand, true)} (${dealerTotal})`);
+                    }
+
+                    // Determine the winner
+                    determineWinner(playerTotal, dealerTotal, playerName);
+                }
+            }
+
+            //End of round, ask user if they want to play again so long as they still have funds//
+            if (bankRollAmount > 0) {
+                console.log("Would you like to play another round? [Y] [N]");
+                let anotherRound = (await prompt()).toUpperCase().charAt(0);
+
+                if (anotherRound === 'Y') {
+                    playAgain = true;
+                    continue;
+                } else if (anotherRound !== 'Y' && anotherRound) {
+                    console.log("Invalid Response. Please enter [Y] to play another round or [N] to quit the game.");
+                } else if (anotherRound === 'N') {
+                    console.log("Okay, see ya again next time!");
+                    playAgain = false;
+                    break;
+                }
+            } else {
+                console.log(`Sorry, you have busted out of the game. You are at ${bankRollAmount}. Better luck next time!`);
+                break;
+            }
+        }
     }
 }
-document.getElementById('play-again').addEventListener('click', function () {
-    // Playing the Game
-    game();
-});
-// Playing the Game
-game();
 
-// Defining the Game
-function game() {
-    // ... (The rest of the game logic remains the same)
+//Functions for gameplay//
+function displayHand(hand, revealAll = false) {
+    let cardStrings = [];
 
-    // Displaying the Player's Cards
-    playerCard1.innerHTML = player.hand[0].value;
-    playerCard2.innerHTML = player.hand[1].value;
+    for (let i = 0; i < hand.length; i++) {
+        if (i === 0 && !revealAll) {
+            cardStrings.push("Hidden");
+        } else {
+            cardStrings.push(displayCard(hand[i]));
+        }
+    }
+    return cardStrings.join(", ");
 }
 
-// Playing the Game
-game();
+function calculateHandValue(hand) {
+    let total = 0;
+    let numAces = 0;
+
+    for (let card of hand) {
+        let faceValue = FaceValue[card.faceValue];
+        if (faceValue === FaceValue.Ace) {
+            numAces++;
+            total += 11;
+        } else if (faceValue >= FaceValue.Two && faceValue <= FaceValue.Ten) {
+            total += faceValue;
+        } else {
+            total += 10;
+        }
+    }
+
+    while (numAces > 0 && total > 21) {
+        total -= 10;
+        numAces--;
+    }
+    return total;
+}
+
+function displayCard(card) {
+    return `${card.faceValue} of ${card.suit}`;
+}
+
+function determineWinner(playerTotal, dealerTotal, playerName) {
+    if (playerTotal > 21) {
+        console.log("Player busts! Dealer wins!");
+        bankRollAmount -= betValue;
+        console.log(`- $${betValue}\nBankroll
+
+
+playBlackjack();
