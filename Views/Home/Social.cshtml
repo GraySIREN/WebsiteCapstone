@@ -69,39 +69,3 @@
     @*Playing with AI Image generator*@
     <canvas id="myCanvas" width="300" height="300" style="border:1px solid #000000; margin-top: 65px;"></canvas>
 </body>
-
-
-
-
-
-<script>
-
-    async function generateImage(input) {
-        // Load the MobileNet model
-        const model = await tf.loadLayersModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json');
-
-        // Preprocess the input
-        const inputTensor = tf.browser.fromPixels(input).resizeNearestNeighbor([224, 224]).toFloat();
-
-        // Normalize the input
-        const offset = tf.scalar(127.5);
-        const normalized = inputTensor.sub(offset).div(offset);
-
-        // Generate the AI image
-        const predictions = await model.predict(normalized).data();
-        console.log('Predictions: ', predictions);
-
-        // TODO: Implement the logic to generate the AI image based on the predictions
-    }
-    document.getElementById('play-again').addEventListener('click', function () {
-        // Call the generateImage function with the appropriate image data
-        generateImage(/* Pass the image data here */);
-    });
-    function drawImage(image) {
-        var canvas = document.getElementById('myCanvas');
-        var ctx = canvas.getContext('2d');
-
-        // Draw the image onto the canvas
-        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    }
-</script>

@@ -151,38 +151,41 @@ async function playBlackjack() {
             console.log(`Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
             console.log(`Dealer lays one card facedown. Dealer's face-up card: ${displayCard(dealerHand[1])}`);
 
-            // Actual Gameplay
+
+            // Get the element where you want to display game updates
+            const gameUpdatesElement = document.getElementById('game-updates');
+
+            // Attach event listeners to buttons
             document.getElementById('hit-button').addEventListener('click', hit);
             document.getElementById('stand-button').addEventListener('click', stand);
+            document.getElementById('play-again').addEventListener('click', playAgain);
 
             async function hit() {
                 if (playerTotal < 21) {
                     let newCard = deck.dealCard();
                     playerHand.push(newCard);
                     playerTotal = calculateHandValue(playerHand);
-                    console.log(`\n${playerName} drew ${displayCard(newCard)}`);
-                    console.log(`Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
+                    updateGameMessages(`${playerName} drew ${displayCard(newCard)}. Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
 
                     if (dealerTotal < 17) {
                         let newCardDealer = deck.dealCard();
                         dealerHand.push(newCardDealer);
                         dealerTotal = calculateHandValue(dealerHand);
-                        console.log(`\nDealer has to hit. Dealer draws ${displayCard(newCardDealer)}`);
-                        console.log(`Dealer hand: FaceDown, ${displayCard(dealerHand[1])}, ${displayCard(newCard)}`);
+                        updateGameMessages(`Dealer has to hit. Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: FaceDown, ${displayCard(dealerHand[1])}, ${displayCard(newCard)}`);
                     }
                 }
             }
 
             function stand() {
                 if (playerTotal < 21) {
-                    console.log(`${playerName} stands with a total of ${playerTotal}.`);
+                    updateGameMessages(`${playerName} stands with a total of ${playerTotal}.`);
 
                     // Dealer's turn
                     while (dealerTotal < 17) {
                         let newCardDealer = deck.dealCard();
                         dealerHand.push(newCardDealer);
                         dealerTotal = calculateHandValue(dealerHand);
-                        console.log(`Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: ${displayHand(dealerHand, true)} (${dealerTotal})`);
+                        updateGameMessages(`Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: ${displayHand(dealerHand, true)} (${dealerTotal})`);
                     }
 
                     // Determine the winner
@@ -191,23 +194,30 @@ async function playBlackjack() {
             }
 
             //End of round, ask user if they want to play again so long as they still have funds//
-            if (bankRollAmount > 0) {
-                console.log("Would you like to play another round? [Y] [N]");
-                let anotherRound = (await prompt()).toUpperCase().charAt(0);
+            function playAgain() {
+                if (bankRollAmount > 0) {
+                    console.log("Would you like to play another round? [Y] [N]");
+                    let anotherRound = (await prompt()).toUpperCase().charAt(0);
 
-                if (anotherRound === 'Y') {
-                    playAgain = true;
-                    continue;
-                } else if (anotherRound !== 'Y' && anotherRound) {
-                    console.log("Invalid Response. Please enter [Y] to play another round or [N] to quit the game.");
-                } else if (anotherRound === 'N') {
-                    console.log("Okay, see ya again next time!");
-                    playAgain = false;
+                    if (anotherRound === 'Y') {
+                        playAgain = true;
+                        continue;
+                    } else if (anotherRound !== 'Y' && anotherRound) {
+                        console.log("Invalid Response. Please enter [Y] to play another round or [N] to quit the game.");
+                    } else if (anotherRound === 'N') {
+                        console.log("Okay, see ya again next time!");
+                        playAgain = false;
+                        break;
+                    }
+                } else {
+                    console.log(`Sorry, you have busted out of the game. You are at ${bankRollAmount}. Better luck next time!`);
                     break;
                 }
-            } else {
-                console.log(`Sorry, you have busted out of the game. You are at ${bankRollAmount}. Better luck next time!`);
-                break;
+            }
+
+            // Function to update game messages
+            function updateGameMessages(message) {
+                gameUpdatesElement.textContent += message + '\n'; // Append new message to existing content
             }
         }
     }
