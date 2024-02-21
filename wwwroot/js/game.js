@@ -171,27 +171,27 @@ async function playBlackjack() {
                     let newCard = deck.dealCard();
                     playerHand.push(newCard);
                     playerTotal = calculateHandValue(playerHand);
-                    updateGameMessages(`${playerName} drew ${displayCard(newCard)}. Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
+                    updateGameUpdates(`${playerName} drew ${displayCard(newCard)}. Player's hand: ${displayHand(playerHand, true)} (${playerTotal})`);
 
                     if (dealerTotal < 17) {
                         let newCardDealer = deck.dealCard();
                         dealerHand.push(newCardDealer);
                         dealerTotal = calculateHandValue(dealerHand);
-                        updateGameMessages(`Dealer has to hit. Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: FaceDown, ${displayCard(dealerHand[1])}, ${displayCard(newCard)}`);
+                        updateGameUpdates(`Dealer has to hit. Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: FaceDown, ${displayCard(dealerHand[1])}, ${displayCard(newCard)}`);
                     }
                 }
             }
 
-            function stand() {
+            function StandButtonClick() {
                 if (playerTotal < 21) {
-                    updateGameMessages(`${playerName} stands with a total of ${playerTotal}.`);
+                    updateGameUpdates(`${playerName} stands with a total of ${playerTotal}.`);
 
                     // Dealer's turn
                     while (dealerTotal < 17) {
                         let newCardDealer = deck.dealCard();
                         dealerHand.push(newCardDealer);
                         dealerTotal = calculateHandValue(dealerHand);
-                        updateGameMessages(`Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: ${displayHand(dealerHand, true)} (${dealerTotal})`);
+                        updateGameUpdates(`Dealer draws ${displayCard(newCardDealer)}. Dealer's hand: ${displayHand(dealerHand, true)} (${dealerTotal})`);
                     }
 
                     // Determine the winner
@@ -200,7 +200,7 @@ async function playBlackjack() {
             }
 
             //End of round, ask user if they want to play again so long as they still have funds//
-            function playAgain() {
+            function playAgainPlayButtonClick() {
                 if (bankRollAmount > 0) {
                     updateGameUpdates("Would you like to play another round? [Y] [N]");
                     let anotherRound = (prompt()).toUpperCase().charAt(0);
@@ -208,23 +208,31 @@ async function playBlackjack() {
                     if (anotherRound === 'Y') {
                         playAgain = true;
                         continue;
-                    } else if (anotherRound !== 'Y' && anotherRound) {
+
+                    }
+                    if (anotherRound !== 'Y' && anotherRound) {
                         updateGameUpdates("Invalid Response. Please enter [Y] to play another round or [N] to quit the game.");
-                    } else if (anotherRound === 'N') {
+
+                    }
+                    if (anotherRound === 'N') {
                         updateGameUpdates("Okay, see ya again next time!");
                         playAgain = false;
                         break;
+
                     }
-                
                     else {
-                    updateGameUpdates(`Sorry, you have busted out of the game. You are at ${bankRollAmount}. Better luck next time!`);
-                    break;
+                        updateGameUpdates(`Sorry, you have busted out of the game. You are at ${bankRollAmount}. Better luck next time!`);
+                        break;
+                    }
                 }
             }
-            //Update the game messages to the user interface
-            function updateGameUpdates(message) {
-                const gameUpdatesElement = document.getElementById('game-updates');
-                gameUpdatesElement.innerHTML += `<p>${message}</p>`; // Append the message as a new paragraph
+
+
+            //***********************************************************************************************//
+
+            // Function to update the game updates container
+            function updateGameUpdates(gameString) {
+                document.getElementById('gameUpdatesText').innerHTML = gameString + "<br />" + document.getElementById('gameUpdatesText').innerHTML;
             }
         }
     }
@@ -275,7 +283,8 @@ function determineWinner(playerTotal, dealerTotal, playerName) {
     if (playerTotal > 21) {
         updateGameUpdates("Player busts! Dealer wins!");
         bankRollAmount -= betValue;
-        updateGameUpdates(`- $${betValue}\nBankroll
-    
+        updateGameUpdates('${betValue}\nBankroll.');
+        updateGameUpdates(`Bankroll Amount: ' $${bankRollAmount}.`);
+    }
 
 playBlackjack();

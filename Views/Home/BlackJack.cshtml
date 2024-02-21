@@ -100,7 +100,6 @@
     <script>
 
 
-
         window.onload = function (e) {
             var gameString = 'Welcome to the Game.';
             document.getElementById('gameUpdatesText').innerHTML = gameString;
@@ -110,6 +109,7 @@
         function PlayButtonClick() {
             var gameString = 'The game has begun.';
             document.getElementById('gameUpdatesText').innerHTML = gameString + "<br />" + document.getElementById('gameUpdatesText').innerHTML.valueOf();
+            
         }
 
         function HitButtonClick() {
@@ -118,9 +118,11 @@
         }
 
         function StandButtonClick() {
-            var gameString = 'The Player Stands.';
+            var gameString = 'The Player Stands. ';
             document.getElementById('gameUpdatesText').innerHTML = gameString + "<br />" + document.getElementById('gameUpdatesText').innerHTML.valueOf();
+
         }
+
     </script>
 </body>
 </html>
