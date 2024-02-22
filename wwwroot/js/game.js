@@ -109,24 +109,37 @@ async function playBlackjack() {
     //After the first round, every sequential round will prompt user to ask if they want to play again//
 
     while (playAgain) {
+
+        function dealCards()
+
         deck.shuffle();
         let playerHand = [];
         let dealerHand = [];
 
-        let playerName = await prompt("Hello, what is your name? ");
-        updateGameText(`Welcome to Blackjack, ${playerName}!`);
+        playerHand.push(deck.dealCard());
+        dealerHand.push(deck.dealCard());
+        playerHand.push(deck.dealCard());
+        dealerHand.push(deck.dealCard());
+
+        // Update game messages
+        updateGameText("Cards dealt.");
+        updateGameText(`Player's hand: ${displayHand(playerHand)}`);
+        updateGameText(`Dealer's hand: ${displayHand(dealerHand)}`);
+    }
+
+    // Function to update game messages
+    function updateGameText(message) {
+        // Get the container for game updates
+        let gameUpdatesText = document.getElementById('gameUpdatesText');
+
+        // Append the new message to the existing content
+        gameUpdatesText.innerHTML += message + "<br>";
+    }
 
         let buyInValue = await buyIn();
         bankRollAmount += buyInValue;
 
         while (bankRollAmount > 0) {
-            // Deal 2 new cards to player and dealer
-            document.getElementById('dealButton').addEventListener('click', dealCards);
-
-            playerHand.push(deck.dealCard());
-            dealerHand.push(deck.dealCard());
-            playerHand.push(deck.dealCard());
-            dealerHand.push(deck.dealCard());
 
             if (bankRollAmount <= 0) {
                 updateGameText("Sorry! You have bust out. Better luck next time!");

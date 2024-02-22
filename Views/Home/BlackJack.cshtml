@@ -15,12 +15,12 @@
 
             <!-- Card 1 -->
             <div class="card" id="#playerHand" @*style="background-image: url('https://i.imgur.com/j4ebqJG.png');"*@>
-                <p id="text-playerCard1"></p>
+                <p id="textPlayerCard1"></p>
             </div>
 
             <!-- Card 2 -->
             <div class="card" id="#playerHand" @*style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;"*@>
-                <p id="text-playerCard2"></p>
+                <p id="textPlayerCard2"></p>
             </div>
 
             <!-- Display dealer's hand -->
@@ -86,8 +86,7 @@
         <div id="buttons">
             <button id="hit-button" onclick="HitButtonClick()">Hit</button>
             <button id="stand-button" onclick="StandButtonClick()">Stand</button>
-            <button id="play-again" onclick="PlayButtonClick()">Play</button>
-            <button id="dealButton">Deal Cards</button>
+            <button id="deal-Button" onclick="DealCardsClick()">Deal Cards</button>
 
         </div>
     </div>
@@ -104,10 +103,15 @@
             
         }
 
-        function PlayButtonClick() {
+        function DealCardsClick() {
             var gameString = 'The game has begun.';
             document.getElementById('gameUpdatesText').innerHTML = gameString + "<br />" + document.getElementById('gameUpdatesText').innerHTML.valueOf();
 
+
+            var playerCard1 = 'Player first card is: ';
+            var playerCard1 = document.getElementById('playerCard1').innerHTML.valueOf();
+            var textPlayerCard1 = playerCard1;
+            
         }
 
         function HitButtonClick() {
