@@ -14,30 +14,26 @@
             <div id="player-hand"></div>
 
             <!-- Card 1 -->
-            <div class="card" id="#playerCard1" @*style="background-image: url('https://i.imgur.com/j4ebqJG.png');"*@>
-                <h2></h2>
-                <p></p>
+            <div class="card" id="#playerHand" @*style="background-image: url('https://i.imgur.com/j4ebqJG.png');"*@>
+                <p id="text-playerCard1"></p>
             </div>
 
             <!-- Card 2 -->
-            <div class="card" id="#playerCard2" @*style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;"*@>
-                <h2></h2>
-                <p></p>
+            <div class="card" id="#playerHand" @*style="background-image: url('https://i.imgur.com/SrTxfYE.png'); margin-right: 25px;"*@>
+                <p id="text-playerCard2"></p>
             </div>
 
             <!-- Display dealer's hand -->
             <div id="dealer-hand"></div>
 
             <!-- Card 3 -->
-            <div class="card" id="dealerCard1" @*style="background-image: url('https://i.imgur.com/WVou0eM.png');"*@>
-                <h2></h2>
-                <p></p>
+            <div class="card" id="dealerHand" @*style="background-image: url('https://i.imgur.com/WVou0eM.png');"*@>
+                <p id="dealerCard1"></p>
             </div>
 
             <!-- Card 4 -->
-            <div class="card" id="dealerCard2" style="resize: inherit; background-image: url('');">
-                <h2></h2>
-                <p></p>
+            <div class="card" id="dealerHand" style="resize: inherit; background-image: url('');">
+                <p id="dealerCard2"></p>
             </div>
         </div>
     </div>
@@ -91,6 +87,8 @@
             <button id="hit-button" onclick="HitButtonClick()">Hit</button>
             <button id="stand-button" onclick="StandButtonClick()">Stand</button>
             <button id="play-again" onclick="PlayButtonClick()">Play</button>
+            <button id="dealButton">Deal Cards</button>
+
         </div>
     </div>
 
@@ -109,7 +107,7 @@
         function PlayButtonClick() {
             var gameString = 'The game has begun.';
             document.getElementById('gameUpdatesText').innerHTML = gameString + "<br />" + document.getElementById('gameUpdatesText').innerHTML.valueOf();
-            
+
         }
 
         function HitButtonClick() {

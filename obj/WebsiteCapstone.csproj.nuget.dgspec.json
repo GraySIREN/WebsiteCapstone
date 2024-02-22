@@ -40,6 +40,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Node.js": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
             "bootstrap": {
               "target": "Package",
               "version": "[5.3.2, )"

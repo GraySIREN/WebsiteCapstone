@@ -11,5 +11,6 @@
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.2" />
     <PackageReference Include="jQuery" Version="3.7.1" />
+    <PackageReference Include="Node.js" Version="5.3.0" />
   </ItemGroup>
 </Project>

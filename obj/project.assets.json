@@ -229,6 +229,9 @@
       },
       "jQuery/3.7.1": {
         "type": "package"
+      },
+      "Node.js/5.3.0": {
+        "type": "package"
       }
     }
   },
@@ -355,10 +358,29 @@
         "jquery.3.7.1.nupkg.sha512",
         "jquery.nuspec"
       ]
+    },
+    "Node.js/5.3.0": {
+      "sha512": "WebrKeV0cXE4TaYriZQfDRNO/UMYnlQgR/CrHEx4kLgiRsY6F0Ve2UVS7qDHQHAjj/KXo3ygJY6HDhf91hwJDw==",
+      "type": "package",
+      "path": "node.js/5.3.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/.bin/node.cmd",
+        "node.exe",
+        "node.js.5.3.0.nupkg.sha512",
+        "node.js.nuspec",
+        "readme.txt",
+        "tools/bin_tools.ps1",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Node.js >= 5.3.0",
       "bootstrap >= 5.3.2",
       "jQuery >= 3.7.1"
     ]
@@ -402,6 +424,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Node.js": {
+            "target": "Package",
+            "version": "[5.3.0, )"
+          },
           "bootstrap": {
             "target": "Package",
             "version": "[5.3.2, )"
